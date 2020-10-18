@@ -1,0 +1,175 @@
+<div class="pt-5" style="background-image: url(../../../assets/donate.jpg);">
+  <div class="container row ">
+      <div class="col-lg-8 p-5"  id="left">
+        <form class="form-group" formGroup *ngIf="cause">
+          <div class="form-group">
+            <div class="form-inline">
+              <h1>{{cause.title}}</h1>
+            </div>
+            <div class="form-inline">
+              <h4>{{cause.description}}</h4>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col">
+              <h4>1. Choose your donate amount</h4>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-lg-6">
+              <button id="btn1" class="btn btn-outline-secondary">Give Once</button>
+            </div>
+            <div class="form-group col-lg-6">
+              <button id="btn1" class="btn btn-outline-secondary">Give Monthly</button>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-lg-4">
+              <button id="btn1" class="btn btn-outline-secondary">25$</button>
+            </div>
+            <div class="form-group col-lg-4">
+              <button id="btn1" class="btn btn-outline-secondary">50$</button>
+            </div>
+            <div class="form-group col-lg-4">
+              <button id="btn1" class="btn btn-outline-secondary">80$</button>
+            </div>
+
+          </div>
+          <div class="form-row">
+            <div class="form-group col-lg-4">
+              <button id="btn1" class="btn btn-outline-secondary">150$</button>
+            </div>
+            <div class="form-group col-lg-8">
+              <input class="form-control" placeholder="Other" id="Other" />
+            </div>
+          </div>
+        </form>
+
+        <form class="form-group my-5" formGroup>
+          <div class="form-row">
+            <div class="form-group col">
+              <h4>2.Contact Details</h4>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-lg-4 ">
+              <label>Title</label>
+              <select class="form-control" id="input">
+                <option>Select</option>
+                <option>Mr</option>
+                <option>Mrs</option>
+                <option>Mr & Mrs</option>
+                <option>Ms</option>
+                <option>Miss</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group col-lg-4 offset-lg-2">
+              <label>Date Of Birth</label>
+              <input type="date" class="form-control" id="input"/>
+            </div>
+          </div>
+            <div class="form-row">
+              <div class="form-group col-lg-6">
+                <label>First Name</label>
+                <input class="form-control" id="input"/>
+              </div>
+              <div class="form-group col-lg-6">
+                <label>Last Name</label>
+                <input type="text" class="form-control" id="input"/>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-lg-6">
+                <label>Email</label>
+                <input type="email" class="form-control" id="input"/>
+              </div>
+              <div class="form-group col-lg-6">
+                <label>Phone Number</label>
+                <input type="text" class="form-control" id="input"/>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-lg-12">
+                <label>Full Address</label>
+                <input type="text" class="form-control" placeholder="Start typing and select your address" id="input"/>
+              </div>
+            </div>
+        </form>
+
+        <form class="form-group" formGroup>
+          <div class="form-row">
+            <div class="form-group col">
+              <h4>2.Contact Details</h4>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-lg-12">
+              <label>Pay With</label>
+              <select type="text" class="form-control" id="input">
+                <option>Paypal</option>
+                <option>Credit Card</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-lg-12">
+              <label>Cardholder Name</label>
+              <input type="text" class="form-control" id="input"/>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-lg-6">
+              <label>Card Type</label>
+              <select class="form-control" id="input">
+                <option>Select</option>
+                <option>Visa</option>
+                <option>Master Card</option>
+              </select>
+            </div>
+            <div class="form-group col-lg-6">
+              <label>Card Number</label>
+              <input type="text" class="form-control" id="input"/>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-lg-4">
+              <label>Expiry Month</label>
+              <select class="form-control" id="input">
+                <option>Select</option>
+                <option>1-January</option>
+                <option>2-February</option>
+              </select>
+            </div>
+            <div class="form-group col-lg-4">
+              <label>Expiry Year</label>
+              <select class="form-control"  id="input">
+                <option>Select</option>
+                <option>2020</option>
+                <option>2021</option>
+              </select>
+            </div>
+            <div class="form-group col-lg-4">
+              <label>CVC</label>
+              <input type="number" class="form-control" id="input"/>
+            </div>
+          </div>
+          </form>
+          <form class="form-group" formGroup>
+            <div class="form-row">
+              <div class="form-group col">
+                <label>Please fix any error mark in red above to continue.</label>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-lg-12">
+                <button id="btn1" class="btn btn-danger">Donate</button>
+              </div>
+            </div>
+          </form>
+      </div>
+  </div>
+</div>

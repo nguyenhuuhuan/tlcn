@@ -1,0 +1,49 @@
+
+.container{
+  font-family: 'Times New Roman', Times, serif;
+
+}
+
+h3{
+  color:rgb(134, 33, 33);
+  font-size: 50px;
+}
+h5{
+  background-color: rgb(243, 196, 196);
+  height: 50px;
+  width: 100px;
+  text-align: center;
+  padding-top:15px ;
+  color:rgb(141, 22, 22);
+}
+#donate{
+  height: 50px;
+}
+
+
+
+
+.featurette-divider {
+  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -.05rem;
+}
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: 400;
+}
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+
+
+
