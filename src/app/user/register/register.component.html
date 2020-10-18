@@ -11,43 +11,38 @@
               <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
             </div>
             <br>
-            <form class="user" [formGroup]="userService.formModel" >
+            <form class="user" [formGroup]="userService.formModel" autocomplete="off" (submit)="onSubmit()" >
               <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0" >
-                  <input formControlName="UserName" type="text" class="form-control form-control-user " id="exampleUserName" placeholder="UserName" >
-                  <label class="text-danger" *ngIf="userService.formModel.get('UserName').touched && userService.formModel.get('UserName').errors?.required">This field is mandatory.</label>
+                  <input formControlName="userName" type="text" class="form-control form-control-user " id="exampleUserName" placeholder="UserName" >
+                  <label class="text-danger" *ngIf="userService.formModel.get('userName').touched && userService.formModel.get('userName').errors?.required">This field is mandatory.</label>
                 </div>
                 <div class="col-sm-6">
-                  <input formControlName="FullName" type="text" class="form-control form-control-user" id="exampleFullName" placeholder="Full Name">
+                  <input formControlName="fullName" type="text" class="form-control form-control-user" id="exampleFullName" placeholder="Full Name">
 
                 </div>
               </div>
-              <div class="form-group row">
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                  <input formControlName="Dob" type="text" class="form-control form-control-user" id="exampleFirstDob" placeholder="Date of Birth">
-                </div>
-                <div class="col-sm-6">
-                  <input formControlName="PhoneNumber" type="text" class="form-control form-control-user" id="exampleLastPhone" placeholder="Phone Number">
-                </div>
+              <div class="form-group">          
+                  <input formControlName="phoneNumber" type="text" class="form-control form-control-user" id="exampleLastPhone" placeholder="Phone Number">
               </div>
               <div class="form-group">
-                <input formControlName="Email" type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
-                <label class="text-danger" *ngIf="userService.formModel.get('Email').touched && userService.formModel.get('Email').errors?.full">Invalid email address.</label>
+                <input formControlName="email" type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
+                <label class="text-danger" *ngIf="userService.formModel.get('email').touched && userService.formModel.get('email').errors?.full">Invalid email address.</label>
 
               </div>
 
-              <div class="form-group row" formGroupName="Passwords">
+              <div class="form-group row" formGroupName="passwords">
                 <div class="col-sm-6 mb-3 mb-sm-0">
-                  <input formControlName="Password" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
-                  <label class="text-danger" *ngIf="userService.formModel.get('Passwords.Password').touched && userService.formModel.get('Passwords.Password').errors?.required">This field is mandatory.</label>
-                  <label class="text-danger" *ngIf="userService.formModel.get('Passwords.Password').touched && userService.formModel.get('Passwords.Password').errors?.minlength">Minimun 4 characters required.</label>
+                  <input formControlName="password" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                  <label class="text-danger" *ngIf="userService.formModel.get('passwords.password').touched && userService.formModel.get('passwords.password').errors?.required">This field is mandatory.</label>
+                  <label class="text-danger" *ngIf="userService.formModel.get('passwords.password').touched && userService.formModel.get('passwords.password').errors?.minlength">Minimun 4 characters required.</label>
                 </div>
                 <div class="col-sm-6">
-                  <input formControlName="ConfirmPassword" type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">
-                  <label class="text-danger" *ngIf="userService.formModel.get('Passwords.ConfirmPassword').touched && userService.formModel.get('Passwords.ConfirmPassword').errors?.passwordMismatch">Confirm Password does not match.</label>
+                  <input formControlName="confirmPassword" type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">
+                  <label class="text-danger" *ngIf="userService.formModel.get('passwords.confirmPassword').touched && userService.formModel.get('passwords.confirmPassword').errors?.passwordMismatch">Confirm Password does not match.</label>
                 </div>
               </div>
-              <button href="login.html" class="btn btn-primary btn-user btn-block" [disabled]="userService.formModel.valid">
+              <button href="login.html" class="btn btn-primary btn-user btn-block" [disabled]="!userService.formModel.valid">
                 Register Account
               </button>
 

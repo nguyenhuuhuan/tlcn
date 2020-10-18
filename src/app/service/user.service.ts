@@ -1,24 +1,28 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {HttpClient} from '@angular/common/http'
+import {HttpClient, HttpHeaders} from '@angular/common/http'
+import {IUser} from '../service/users';
+import { environment } from 'src/environments/environment';
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-
+  user:IUser
+  readonly userURL="http://localhost:3000/user";
   formModel=this.fb.group({
-    UserName:['',Validators.required],
-    Email:['', Validators.email],
-    FullName:[''],
-    Dob:[''],
-    PhoneNumber:[''],
-    Passwords:this.fb.group({
-      Password:['',[Validators.required,Validators.minLength(4)]],
-      ConfirmPassword:['',Validators.required],
+    userName:['',Validators.required],
+    email:['', Validators.email],
+    fullName:[''], 
+    phoneNumber:[''],
+    passwords:this.fb.group({
+      password:['',[Validators.required,Validators.minLength(4)]],
+      confirmPassword:['',Validators.required],
     },{validators:this.comparePasswords}),
 
   });
-
+  
   constructor(
     private fb:FormBuilder,
     private http:HttpClient
@@ -26,27 +30,39 @@ export class UserService {
 
 
   comparePasswords(fb:FormGroup){
-    let confirmPswrdCtrl=fb.get('ConfirmPassword');
+    let confirmPswrdCtrl=fb.get('confirmPassword');
     //passwordMismatch
     //confirmPswrdCtrl.errors={passwordMismatch:true}
     if(confirmPswrdCtrl.errors==null||'passwordMismatch' in confirmPswrdCtrl.errors){
-      if(fb.get('Password').value!=confirmPswrdCtrl.value)
+      if(fb.get('password').value!=confirmPswrdCtrl.value)
       confirmPswrdCtrl.setErrors({passwordMismatch:true});
       else
       confirmPswrdCtrl.setErrors(null);
     }
   }
-  //postUser(user:UserService)
-  // register(){
-  //   var body={
-  //     UserName:this.formModel.value.UserName,
-  //     Email:this.formModel.value.Email,
-  //     Password:this.formModel.value.Passwords.Password,
-  //     FullName:this.formModel.value.FullName,
+  
 
-  //   };
-      //return this.http.post(this.BaseURI+'',body)
+
+  login(formData){
+    return this.http.post(this.userURL+'/login',formData)
+  }
+  getUserProfile(){
+    var tokenHeader=new HttpHeaders({'Authorization':'Bearer'+localStorage.getItem('token')})
+    return this.http.get(this.userURL+'/userProfile',{headers:tokenHeader});
+  }
+  // postUser(user:IUser){
+  //   return this.http.post(environment.apiBaseUrl+'/register', user)
   // }
+  register(){
+    var body={
+      userName:this.formModel.value.userName,
+      email:this.formModel.value.email,
+      password:this.formModel.value.passwords.password,
+      fullName:this.formModel.value.fullName,
+
+    };
+      return this.http.post(this.userURL+'/register',body)
+  }
 
   // login(formData){
   //   return this.http.post

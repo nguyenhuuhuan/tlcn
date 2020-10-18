@@ -7,9 +7,9 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
 
-
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     UserComponent,
@@ -21,7 +21,8 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-
+   //ToastrModule.forRoot(),
+    HttpClientModule,
     BrowserModule,
     UserRoutingModule
   ],
