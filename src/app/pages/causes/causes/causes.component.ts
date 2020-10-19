@@ -25,13 +25,8 @@ export class CausesComponent implements OnInit {
         console.log(orderBy);
       }
     )
-   // this.refeshCausesList()
   }
-  // refeshCausesList(){
-  //   this.CausesService.getCausesList().subscribe((res)=>{
-  //     this.CausesService.causeList=res.res
-  //   })
-  // }
+
   onToggle=()=>{
     this.isShow=!this.isShow
   }

@@ -14,7 +14,7 @@ export class UserService {
   formModel=this.fb.group({
     userName:['',Validators.required],
     email:['', Validators.email],
-    fullName:[''], 
+    fullName:[''],
     phoneNumber:[''],
     passwords:this.fb.group({
       password:['',[Validators.required,Validators.minLength(4)]],
@@ -22,7 +22,7 @@ export class UserService {
     },{validators:this.comparePasswords}),
 
   });
-  
+
   constructor(
     private fb:FormBuilder,
     private http:HttpClient
@@ -40,7 +40,7 @@ export class UserService {
       confirmPswrdCtrl.setErrors(null);
     }
   }
-  
+
 
 
   login(formData){
@@ -59,9 +59,9 @@ export class UserService {
       email:this.formModel.value.email,
       password:this.formModel.value.passwords.password,
       fullName:this.formModel.value.fullName,
-
+      phoneNumber:this.formModel.value.phoneNumber
     };
-      return this.http.post(this.userURL+'/register',body)
+      return this.http.post(this.userURL,body)
   }
 
   // login(formData){

@@ -20,10 +20,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.activatedRoute.paramMap.pipe(
-      map(params=>params.get('1')),
-      switchMap(id=>this.causesService.getById(id))
-    ).subscribe(cause=>this.cause=cause)
+    // this.activatedRoute.paramMap.pipe(
+    //   map(params=>params.get(1)),
+    //   switchMap(id=>this.causesService.getById(id)
+    // ).subscribe(cause=>this.cause=cause)
   }
   login(){
     this.authService.login()

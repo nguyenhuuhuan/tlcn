@@ -41,7 +41,7 @@ import { UserService } from './service/user.service';
     AdminModule,
     UserModule,
     ReactiveFormsModule,
-    
+
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
@@ -49,7 +49,7 @@ import { UserService } from './service/user.service';
     AppRoutingModule,
 
   ],
-  providers: [UserService,ToastrModule],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

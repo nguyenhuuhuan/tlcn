@@ -1,5 +1,5 @@
 export interface ICauses{
-  id:string,
+  id:number,
   title:string,
   imageUrl:string,
   target:Number,

@@ -21,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-   //ToastrModule.forRoot(),
+    ToastrModule.forRoot(),
     HttpClientModule,
     BrowserModule,
     UserRoutingModule
