@@ -1,7 +1,7 @@
 <div class="pt-5" style="background-image: url(../../../assets/donate.jpg);">
   <div class="container row ">
       <div class="col-lg-8 p-5"  id="left">
-        <form class="form-group" formGroup *ngIf="cause">
+        <form class="form-group" [formGroup]  *ngIf="causesService.cause">
           <div class="form-group">
             <div class="form-inline">
               <h1>{{cause.title}}</h1>
@@ -44,8 +44,7 @@
             </div>
           </div>
         </form>
-
-        <form class="form-group my-5" formGroup>
+        <form class="form-group my-5" >
           <div class="form-row">
             <div class="form-group col">
               <h4>2.Contact Details</h4>
@@ -97,7 +96,7 @@
             </div>
         </form>
 
-        <form class="form-group" formGroup>
+        <form class="form-group" >
           <div class="form-row">
             <div class="form-group col">
               <h4>2.Contact Details</h4>

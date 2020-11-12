@@ -11,7 +11,7 @@ import { switchMap,map } from 'rxjs/operators';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  cause:ICauses;
+  causesList:ICauses[];
   constructor(
     private causesService:CausesService,
     private activatedRoute:ActivatedRoute,
@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
     //   map(params=>params.get(1)),
     //   switchMap(id=>this.causesService.getById(id)
     // ).subscribe(cause=>this.cause=cause)
+    this.getCauses()
   }
   login(){
     this.authService.login()
@@ -31,5 +32,7 @@ export class HomeComponent implements OnInit {
   logout(){
     this.authService.logout()
   }
-
+  getCauses():void{
+    this.causesService.getCausesList().subscribe(causesList=> this.causesList =causesList.slice(1,2))
+  }
 }

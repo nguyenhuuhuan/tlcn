@@ -54,9 +54,9 @@
         </thead>
         <tbody class="text-center">
           <tr *ngFor="let cause of causeList">
-            <th scope="row">1</th>
+            <th scope="row">{{cause.id}}</th>
             <td>{{cause.title}}</td>
-            <td>{{cause.person[0].name}}</td>
+            <td>{{cause.person}}</td>
             <td>{{cause.raised}}$</td>
             <td>{{cause.target}}$/tháng</td>
             <td>{{cause.person}}</td>

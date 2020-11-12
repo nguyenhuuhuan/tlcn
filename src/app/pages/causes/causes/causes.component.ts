@@ -1,8 +1,9 @@
 import { CausesService } from './../../../service/causes.service';
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router'
-import {ICauses} from '../../../service/causes'
+import { Component, NgZone, OnInit } from '@angular/core';
+import { ActivatedRoute, Router} from '@angular/router'
+import { ICauses } from '../../../service/causes'
 import { query } from '@angular/animations';
+import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-causes',
   templateUrl: './causes.component.html',
@@ -12,9 +13,13 @@ export class CausesComponent implements OnInit {
   causeList:ICauses[];
   public isShow:boolean=false
   public goi:String='Person'
+  submitted=false;
+  causeForm:FormGroup;
+
   constructor(
     private CausesService:CausesService,
-    private activatedRoute:ActivatedRoute
+    private activatedRoute:ActivatedRoute,
+    
     ) { }
 
   ngOnInit() {
@@ -26,7 +31,7 @@ export class CausesComponent implements OnInit {
       }
     )
   }
-
+  
   onToggle=()=>{
     this.isShow=!this.isShow
   }

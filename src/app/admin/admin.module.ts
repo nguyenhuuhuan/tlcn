@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { AdminRoutingModule } from './admin-routing.module';
 import { DashBoardComponent } from './pages/dash-board/dash-board.component';
+import { PersonComponent } from './pages/person/person.component';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -19,7 +20,8 @@ import { DashBoardComponent } from './pages/dash-board/dash-board.component';
     NguoituthienComponent,
     HotronguoingheoComponent,
     AdminDefaultLayoutComponent,
-    AccountComponent
+    AccountComponent,
+    PersonComponent
   ],
   imports: [
     CommonModule,

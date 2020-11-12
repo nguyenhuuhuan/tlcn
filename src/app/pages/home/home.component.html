@@ -1,22 +1,16 @@
 
-<div class="container marketing mt-5">
-  <div class="row featurette">
-    <div class="col-md-7" >
+<div class="container marketing my-5">
+  <div class="row featurette my-5"  *ngFor="let cause of causesList">
+    <div class="col-md-7">
       <p id="up">Upcoming Cause</p>
-      <h3>Support Nahid for<br>
-        His pneumonia<br>
-        treatment</h3>
-      <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span>
-      </h2>
-      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod
-        semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
-        commodo.</p>
+      <h3>{{cause.title}}</h3>
+      <p class="featurette-heading">{{cause.description}}</p>
       <div class="row">
         <div class="col-lg-3 ">
-          <h5> $2989 </h5>
+          <h5> ${{cause.target}} </h5>
         </div>
         <div class="col-lg-3 text-center">
-          <h5> $1890 </h5>
+          <h5> ${{cause.raised}} </h5>
         </div>
         <div class="col-lg-6">
           <button id="donate" class="btn btn-danger"> Donate Now </button>
@@ -25,11 +19,12 @@
     </div>
 
     <div class="col-md-5">
-      <img src="../../../assets/Screen Shot 2020-09-08 at 19.20.43.png" class="rounded mx-auto d-block bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" alt="..." width="500" height="500"
+      <img src={{cause.imageUrl}} class="rounded mx-auto d-block bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" alt="..." width="500" height="500"
       preserveAspectRatio="xMidYMid slice" focusable="false" role="img" >
     </div>
+    
   </div>
-
+  <hr>
 </div>
 
 
@@ -37,7 +32,7 @@
 
 
 <div class="container mt-5" id="producttype">
-  <hr class="featurette-divider my-5">
+  
   <div class="row text-center">
     <div class="col-lg-12">
       <h4>We Work For</h4>

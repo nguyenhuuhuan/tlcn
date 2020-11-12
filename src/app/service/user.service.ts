@@ -11,6 +11,13 @@ import { environment } from 'src/environments/environment';
 export class UserService {
   user:IUser
   readonly userURL="http://localhost:3000/user";
+  
+
+  constructor(
+    private fb:FormBuilder,
+    private http:HttpClient
+  ) { }
+
   formModel=this.fb.group({
     userName:['',Validators.required],
     email:['', Validators.email],
@@ -22,13 +29,6 @@ export class UserService {
     },{validators:this.comparePasswords}),
 
   });
-
-  constructor(
-    private fb:FormBuilder,
-    private http:HttpClient
-  ) { }
-
-
   comparePasswords(fb:FormGroup){
     let confirmPswrdCtrl=fb.get('confirmPassword');
     //passwordMismatch

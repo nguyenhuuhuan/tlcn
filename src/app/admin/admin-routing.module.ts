@@ -6,14 +6,16 @@ import { AdminDefaultLayoutComponent } from './block/admin-default-layout/admin-
 import { DashBoardComponent } from './pages/dash-board/dash-board.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { PersonComponent } from './pages/person/person.component';
 const adminRoutes: Routes = [
   {path:'admin', component:AdminDefaultLayoutComponent,
-  canActivate:[AuthGuard],
+  //canActivate:[AuthGuard],
     children:[
       {path:'dashboard', component:DashBoardComponent},
       {path:'nguoituthien',component:NguoituthienComponent},
-      {path:'goimot', component:HotronguoingheoComponent},
-      {path:'account', component:AccountComponent}
+      {path:'package1', component:HotronguoingheoComponent},
+      {path:'account', component:AccountComponent},
+      {path:'person', component:PersonComponent}
   ]
 }
 ];

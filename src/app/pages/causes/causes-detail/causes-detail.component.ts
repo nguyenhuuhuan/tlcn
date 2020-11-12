@@ -24,9 +24,9 @@ export class CausesDetailComponent implements OnInit {
     this.getCauseFromRoute()
   }
 
-getCauseFromRoute():void{
-  const id=+this.activatedRoute.snapshot.paramMap.get('id');
-  console.log(`this.router.snapshot.paramMap= ${JSON.stringify(this.activatedRoute.snapshot.paramMap)}`)
-  this.causesService.getById(id).subscribe(cause=>this.cause=cause);
-}
+  getCauseFromRoute():void{
+    const id=+this.activatedRoute.snapshot.paramMap.get('id');
+    console.log(`this.router.snapshot.paramMap= ${JSON.stringify(this.activatedRoute.snapshot.paramMap)}`)
+    this.causesService.getById(id).subscribe(cause=>this.cause=cause);
+  }
 }

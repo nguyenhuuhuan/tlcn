@@ -1,7 +1,7 @@
 import { AuthGuard } from './auth.guard';
 import { CausesDetailComponent } from './pages/causes/causes-detail/causes-detail.component';
 import { DefaultLayoutComponent } from './block/default-layout/default-layout.component';
-import { CreateCausesComponent } from './pages/create-causes/create-causes.component';
+import { CreateCausesComponent } from './pages/causes/create-causes/create-causes.component';
 import { DonateComponent } from './pages/donate/donate.component';
 import { CausesComponent } from './pages/causes/causes/causes.component';
 import { HomeComponent } from './pages/home/home.component';

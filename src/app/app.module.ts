@@ -16,7 +16,7 @@ import { NavComponent } from './block/nav/nav.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FooterComponent } from './block/footer/footer.component';
 import { DonateComponent } from './pages/donate/donate.component';
-import { CreateCausesComponent } from './pages/create-causes/create-causes.component';
+import { CreateCausesComponent } from './pages/causes/create-causes/create-causes.component';
 import { DefaultLayoutComponent } from './block/default-layout/default-layout.component';
 import { CausesComponent } from './pages/causes/causes/causes.component';
 import { CausesDetailComponent } from './pages/causes/causes-detail/causes-detail.component';

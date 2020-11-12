@@ -1,7 +1,7 @@
 import { element } from 'protractor';
 import { UserService } from './../../service/user.service';
 import { Component, OnInit } from '@angular/core';
-import { _switch } from 'rxjs-compat/operator/switch';
+//import { _switch } from 'rxjs-compat/operator/switch';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private toastr:ToastrService,
-    private userService:UserService
+    public userService:UserService
     )
     { }
 
@@ -22,9 +22,10 @@ export class RegisterComponent implements OnInit {
   onSubmit(){
     this.userService.register().subscribe(
       (res:any)=>{
-        if(res.succeded){
-          this.userService.formModel.reset();
+        if(res){
           this.toastr.success('New user created!', 'Registration successed.')
+          this.userService.formModel.reset();
+          
         }
         // else{
         //   res.errors.forEach(element => {
