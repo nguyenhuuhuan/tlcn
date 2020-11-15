@@ -1,8 +1,8 @@
 import { query } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PersonService } from '../../service/person.service';
-import { IPerson } from '../../service/person';
+import { CausesService } from 'src/app/service/causes.service';
+import { ICauses } from 'src/app/service/causes';
 
 @Component({
   selector: 'app-person',
@@ -10,14 +10,14 @@ import { IPerson } from '../../service/person';
   styleUrls: ['./person.component.scss']
 })
 export class PersonComponent implements OnInit {
-  person:IPerson[];
+  causeList:ICauses[];
   constructor(
-    private personService:PersonService,
+    private causeService:CausesService,
     private activatedRoute:ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.personService.getPoorPeopleList().subscribe(ps=>this.person=ps);
+    this.causeService.getCausesList().subscribe(ps=>this.causeList=ps);
     this.activatedRoute.queryParamMap.subscribe(
       query=>{
         const orderBy=query.get('orderby');

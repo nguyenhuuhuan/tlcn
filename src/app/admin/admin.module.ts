@@ -12,6 +12,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AdminRoutingModule } from './admin-routing.module';
 import { DashBoardComponent } from './pages/dash-board/dash-board.component';
 import { PersonComponent } from './pages/person/person.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -25,6 +26,9 @@ import { PersonComponent } from './pages/person/person.component';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+
+    FormsModule,
     BrowserModule,
     AdminRoutingModule,
   ],

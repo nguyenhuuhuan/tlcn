@@ -3,14 +3,17 @@ import { Injectable } from '@angular/core';
 import { catchError, delay, tap } from 'rxjs/operators';
 import { ICauses } from './causes';
 import { Observable, of, throwError } from 'rxjs';
+import { FormGroup } from '@angular/forms';
 @Injectable({
   providedIn: 'root'
 })
 export class CausesService {
   private causesURL="http://localhost:3000/causes";
   //private causes:ICauses[];
+  
   cause=ICauses;
   formCause:ICauses;
+  editForm:FormGroup;
   constructor(
     private http:HttpClient
   ) { }
@@ -21,7 +24,7 @@ export class CausesService {
       catchError(error=>of([]))
       )
   }
-  
+
   getById(id:number):Observable<ICauses>{
     const url=`${this.causesURL}/${id}`;
     return this.http.get<ICauses>(url).pipe(
@@ -38,6 +41,7 @@ export class CausesService {
       catchError(this.handleError<ICauses>('addCauses'))
     );
   }
+
   updateCause(causes:ICauses):Observable<any>{
     const url=`${this.causesURL}/${causes.id}`;
     return this.http.put(url,causes).pipe(

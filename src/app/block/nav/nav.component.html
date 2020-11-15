@@ -1,6 +1,6 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-    <a class="navbar-brand js-scroll-trigger" href="#">PROFIT</a>
+    <a class="navbar-brand js-scroll-trigger" href="#"><i class="fas fa-hand-holding-heart"></i> PROFIT</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
       aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -38,11 +38,11 @@
       <form class="form-inline mt-2 mt-md-0" [formGroup]>
         <ul class="navbar-nav mr-auto">
           <li routerLinkActive="active" class="nav-item active">
-            <button routerLink="/donate" class="btn btn-light border border mr-sm-2">Donate Now</button></li>
+            <button routerLink="/donate" class="btn btn-outline-warning border border mr-sm-2">Donate Now</button></li>
           <li routerLinkActive="active" class="nav-item">
-            <a [routerLink]="['/user/login']" class="nav-link">Sign In</a></li>
+            <a [routerLink]="['/user/login']" class="nav-link"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
           <li routerLinkActive="active" class="nav-item">
-            <a class="nav-link" [routerLink]="['/user/register']" routerLinkActive="router-link-active">Sign Up</a></li>
+            <a class="nav-link" [routerLink]="['/user/register']" routerLinkActive="router-link-active"><i class="fas fa-user-plus"></i> Sign Up</a></li>
         </ul>
       </form>
     </div>

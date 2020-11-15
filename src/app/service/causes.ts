@@ -1,13 +1,20 @@
+import { Data } from '@angular/router';
+
 export class ICauses{
-  id:Number;
+  id:number;
   title:string;
   imageUrl:string;
-  target:Number;
-  raised:Number;
-  confirm:Boolean;
+  target:number;
+  raised:number;
+  confirm:string;
   accuracy:string;
   description:string;
-  person:[{
+  person:{
     id:number;
-  }]
+    firstName:string;
+    lastName:string;
+    dob:Date;
+    address:string;
+    avatarUrl:string;
+  }
 }
