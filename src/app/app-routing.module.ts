@@ -1,3 +1,5 @@
+import { NewsDetailComponent } from './pages/news/news-detail/news-detail.component';
+import { NewsComponent } from './pages/news/news/news.component';
 import { AuthGuard } from './auth.guard';
 import { CausesDetailComponent } from './pages/causes/causes-detail/causes-detail.component';
 import { DefaultLayoutComponent } from './block/default-layout/default-layout.component';
@@ -26,7 +28,7 @@ const routes: Routes = [
     },
     {
       path:'createCauses',
-      canActivate:[AuthGuard],
+      //canActivate:[AuthGuard],
       component:CreateCausesComponent
     },
     {
@@ -35,8 +37,16 @@ const routes: Routes = [
     },
 
     {
-      path:'causes/:id',
+      path:'causes/package1/:id',
       component:CausesDetailComponent
+    },
+    {
+      path:'news',
+      component:NewsComponent
+    },
+    {
+      path:'news/:id',
+      component:NewsDetailComponent
     }
   ]},
   // {

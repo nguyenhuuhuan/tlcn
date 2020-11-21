@@ -4,14 +4,19 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { ICharity } from './nguoituthien';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, delay, tap } from 'rxjs/operators';
-import { ICauses } from 'src/app/service/causes';
+import { IPackage1 } from 'src/app/service/package1';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NguoituthienService {
+  headers=new HttpHeaders().set('Content-Type','application/json').set('Accept','application/json');
+  httpOptions={
+    headers:this.headers
+  }
+
   private charityURL="http://localhost:3000/charity";
-  
+
   formCharity:ICharity
   constructor(
     private http:HttpClient
@@ -31,5 +36,12 @@ export class NguoituthienService {
   }
   postCharity(data){
     return this.http.post(this.charityURL, data);
+  }
+
+  update(id:number):Observable<ICharity>{
+    return this.http.put<ICharity>(this.charityURL,this.httpOptions)
+  }
+  delete(id:number):Observable<ICharity>{
+    return this.http.delete<ICharity>(this.charityURL,this.httpOptions)
   }
 }

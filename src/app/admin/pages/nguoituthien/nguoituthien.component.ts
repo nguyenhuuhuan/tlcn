@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ICharity } from '../../service/nguoituthien';
-import { NguoituthienService } from '../../service/nguoituthien.service';
+import { ICharity } from '../../../service/nguoituthien';
+import { NguoituthienService } from '../../../service/nguoituthien.service';
 
 @Component({
   selector: 'app-nguoituthien',
@@ -9,6 +9,7 @@ import { NguoituthienService } from '../../service/nguoituthien.service';
 })
 export class NguoituthienComponent implements OnInit {
   charityList:ICharity[]
+  p:number=1
   constructor(
     private charityService:NguoituthienService,
   ) { }

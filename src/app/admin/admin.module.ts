@@ -1,3 +1,5 @@
+import { AccountManagerComponent } from './pages/account-manager/account-manager.component';
+import { PostComponent } from './pages/post/post.component';
 import { AccountComponent } from './pages/account/account.component';
 import { HotronguoingheoComponent } from './pages/hotronguoingheo/hotronguoingheo.component';
 import { NguoituthienComponent } from './pages/nguoituthien/nguoituthien.component';
@@ -6,7 +8,9 @@ import { AdminDefaultLayoutComponent } from './block/admin-default-layout/admin-
 import { HeaderComponent } from './block/header/header.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { AdminRoutingModule } from './admin-routing.module';
@@ -22,12 +26,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HotronguoingheoComponent,
     AdminDefaultLayoutComponent,
     AccountComponent,
-    PersonComponent
+    PersonComponent,
+    PostComponent,
+    AccountManagerComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-
+    Ng2OrderModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule,
     FormsModule,
     BrowserModule,
     AdminRoutingModule,

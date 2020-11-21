@@ -21,7 +21,11 @@ import { DefaultLayoutComponent } from './block/default-layout/default-layout.co
 import { CausesComponent } from './pages/causes/causes/causes.component';
 import { CausesDetailComponent } from './pages/causes/causes-detail/causes-detail.component';
 import { UserService } from './service/user.service';
-
+import { NewsComponent } from './pages/news/news/news.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { NewsDetailComponent } from './pages/news/news-detail/news-detail.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +38,9 @@ import { UserService } from './service/user.service';
     DefaultLayoutComponent,
     CausesDetailComponent,
     CausesComponent,
+    NewsComponent,
+    NewsDetailComponent,
+
 
   ],
   imports: [
@@ -41,7 +48,9 @@ import { UserService } from './service/user.service';
     AdminModule,
     UserModule,
     ReactiveFormsModule,
-
+    Ng2SearchPipeModule,
+    NgxPaginationModule,
+    Ng2OrderModule,
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),

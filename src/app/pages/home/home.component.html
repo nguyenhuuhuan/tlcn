@@ -1,38 +1,78 @@
 
+<section id="counts" class="counts">
+  <div class="container" data-aos="fade-up">
+    <div class="row">
+
+      <div class="col-lg-3 col-md-6">
+        <div class="count-box">
+          <i class="far fa-smile"></i>
+          <span data-toggle="counter-up">232</span>
+          <p>Happy Clients</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+        <div class="count-box">
+          <i class="fas fa-clipboard-check"></i>
+          <span data-toggle="counter-up">521</span>
+          <p>Projects</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+        <div class="count-box">
+          <i class="fas fa-dollar-sign"></i>
+          <span data-toggle="counter-up">100,463$</span>
+          <p>Total Money</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+        <div class="count-box">
+          <i class="fas fa-hands-helping"></i>
+          <span data-toggle="counter-up">500</span>
+          <p>Volunteer</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- End Counts Section -->
+
 <div class="container marketing my-5">
-  <div class="row featurette my-5"  *ngFor="let cause of causesList">
+  <div class="row featurette my-5"  *ngFor="let package1 of package1List">
     <div class="col-md-7">
       <p id="up">Upcoming Cause</p>
-      <h3>{{cause.title}}</h3>
-      <p class="featurette-heading">{{cause.description}}</p>
+      <h3>{{package1.title}}</h3>
+      <p class="featurette-heading">{{package1.description}}</p>
       <div class="row">
-        <div class="col-lg-3 ">
-          <h5> ${{cause.target}} </h5>
+        <div class="col-lg-3">
+          <label>Target</label>
+          <h5 id="h5"> ${{package1.target}} </h5>
         </div>
-        <div class="col-lg-3 text-center">
-          <h5> ${{cause.raised}} </h5>
+        <div class="col-lg-3 ">
+          <label>Raised</label>
+          <h5 id="h5"> ${{package1.raised}} </h5>
         </div>
         <div class="col-lg-6">
-          <button id="donate" class="btn btn-danger"> Donate Now </button>
+          <br>
+          <button id="donate" class="btn btn-danger mt-2"> Donate Now </button>
         </div>
       </div>
     </div>
 
     <div class="col-md-5">
-      <img src={{cause.imageUrl}} class="rounded mx-auto d-block bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" alt="..." width="500" height="500"
+      <img src={{package1.person.avatarUrl}} class="rounded mx-auto d-block bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" alt="..." width="500" height="500"
       preserveAspectRatio="xMidYMid slice" focusable="false" role="img" >
     </div>
-    
+
   </div>
   <hr>
 </div>
 
-
-
-
-
 <div class="container mt-5" id="producttype">
-  
+
   <div class="row text-center">
     <div class="col-lg-12">
       <h4>We Work For</h4>

@@ -1,12 +1,13 @@
-
 <div class="container">
   <div class="row mt-5">
     <div class="col-sm-6 justify-content-center">
       <div class="text-center">
-        <svg width="100" height="100" viewBox="0 0 16 16" class="bi bi-person-circle " fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M13.4610 12.37C12.7510 11.226 11.195 10 10 10s-4.757 1.225-5.4610 2.37A6.9107 6.9107 0 0 0 10 15a6.9107 6.9107 0 0 0 5.4610-2.63z"/>
-          <path fill-rule="evenodd" d="M10 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-          <path fill-rule="evenodd" d="M10 1a7 7 0 1 0 0 14A7 7 0 0 0 10 1zM0 10a10 10 0 1 1 16 0A10 10 0 0 1 0 10z"/>
+        <svg width="100" height="100" viewBox="0 0 16 16" class="bi bi-person-circle " fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M13.4610 12.37C12.7510 11.226 11.195 10 10 10s-4.757 1.225-5.4610 2.37A6.9107 6.9107 0 0 0 10 15a6.9107 6.9107 0 0 0 5.4610-2.63z" />
+          <path fill-rule="evenodd" d="M10 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+          <path fill-rule="evenodd" d="M10 1a7 7 0 1 0 0 14A7 7 0 0 0 10 1zM0 10a10 10 0 1 1 16 0A10 10 0 0 1 0 10z" />
         </svg>
       </div>
       <div class="text-center mt-3">
@@ -18,8 +19,10 @@
     </div>
     <div class="col-sm-6 justify-content-center">
       <div class="text-center">
-        <svg width="100" height="100" viewBox="0 0 16 16" class="bi bi-gift" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.0310.494H15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 14.5V7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.0310A2.9610 2.9610 0 0 1 3 2.506V2.5zm1.0610.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .0105.002.274.045.43a.522.522 0 0 0 .023.07zM9 3h2.932a.56.56 0 0 0 .023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0V3zM1 4v2h6V4H1zm10 0v2h6V4H9zm5 3H9v10h4.5a.5.5 0 0 0 .5-.5V7zm-7 10V7H2v7.5a.5.5 0 0 0 .5.5H7z"/>
+        <svg width="100" height="100" viewBox="0 0 16 16" class="bi bi-gift" fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.0310.494H15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 14.5V7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.0310A2.9610 2.9610 0 0 1 3 2.506V2.5zm1.0610.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .0105.002.274.045.43a.522.522 0 0 0 .023.07zM9 3h2.932a.56.56 0 0 0 .023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0V3zM1 4v2h6V4H1zm10 0v2h6V4H9zm5 3H9v10h4.5a.5.5 0 0 0 .5-.5V7zm-7 10V7H2v7.5a.5.5 0 0 0 .5.5H7z" />
         </svg>
       </div>
       <div class="text-center mt-3">
@@ -31,9 +34,51 @@
     </div>
   </div>
   <hr class="featurette-divider mt-5">
-
 </div>
 
+<div class="container">
+  <div>
+    <h2>Created List Causes</h2>
+  </div>
+  <table class="table table-striped table-hover">
+    <thead class="table-dark text-center">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Tên Gói</th>
+        <th scope="col">Họ và Tên Người Nhận</th>
+
+        <th scope="col">Số Tiền Hàng Tháng</th>
+        <th scope="col">Địa Chỉ</th>
+        <th scope="col">Xác Nhận</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      <tr *ngFor="let package of package1List">
+        <th scope="row">{{package.id}}</th>
+        <td>{{package.title}}</td>
+        <td>{{package.person.lastName +" "+ package.person.firstName}}</td>
+
+        <td>{{package.target}} $/tháng</td>
+        <td>{{package.person.address}}</td>
+        <td>
+          <button class="btn btn-group" style="color: green;" *ngIf="package.confirm==='da xac thuc'" disabled><i
+              class="fas fa-check-circle "></i></button>
+          <button class="btn btn-group" *ngIf="package.confirm===''" disabled><i class="fas fa-spinner"></i></button>
+          <button class="btn btn-group" *ngIf="package.confirm==='da xoa'" disabled><i
+              class="fas fa-times-circle"></i></button>
+        </td>
+        <td>
+          <!-- <button class="btn btn-group" type="button" data-toggle="modal"
+          data-target="#exampleModalCenter"></button> -->
+          <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i
+              class="fas fa-address-card"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+</div>
 
 <div class="row align-items-center mt-5" id="row">
   <div class="col-sm-6 justify-content-center" id="blocks">
@@ -45,7 +90,7 @@
         whether it's a phone, tablet, or desktop the page will behave responsively!</p>
     </div>
     <div>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Create</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalPackage1">Create</button>
     </div>
   </div>
   <div class="col-sm-6 text-white showcase-img " style="background-image: url(../../../assets/123.jpg);">
@@ -65,13 +110,13 @@
         whether it's a phone, tablet, or desktop the page will behave responsively!</p>
     </div>
     <div>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Create</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalPackage2">Create</button>
     </div>
   </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal Package1-->
+<div class="modal fade" id="ModalPackage1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -81,9 +126,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <form [formGroup]="form"  (ngSubmit)="onSubmit()">
+        <form [formGroup]="formPackage1" (ngSubmit)="onSubmit()">
           <div class="form-row">
-          
+
             <div class="form-group col-sm">
               <div class="form-row-12">
                 <h5>1.Project Details</h5>
@@ -92,19 +137,20 @@
               <div class="form-row">
                 <div class="form-group col-sm-10">
                   <label>Title</label>
-                  <input formControlName="title" type="text" class="form-control" required/>
+                  <input formControlName="title" type="text" placeholder="title" class="form-control" required />
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-sm-10">
                   <label>Description</label>
-                  <textarea formControlName="description" required class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <textarea formControlName="description" required class="form-control" placeholder="description"
+                    id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-sm-10">
                   <label>Target</label>
-                  <input formControlName="target" type="number" class="form-control" />
+                  <input formControlName="target" type="number" placeholder="target" class="form-control" />
                 </div>
               </div>
               <div class="form-row">
@@ -122,17 +168,18 @@
               <div class="form-row">
                 <div class="form-group col-sm-10">
                   <label>First Name</label>
-                  <input formControlName="firstName" required type="text" class="form-control" />
+                  <input formControlName="firstName" required type="text" placeholder="firstname"
+                    class="form-control" />
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-sm-10">
                   <label>Last Name</label>
-                  <input formControlName="lastName" required type="text" class="form-control" />
+                  <input formControlName="lastName" required type="text" placeholder="lastname" class="form-control" />
                 </div>
               </div>
               <div class="form-row">
-                <div class="form-group col-sm-10" >
+                <div class="form-group col-sm-10">
                   <label>DOB</label>
                   <input formControlName="dob" type="date" class="form-control" />
                 </div>
@@ -140,24 +187,174 @@
               <div class="form-row">
                 <div class="form-group col-sm-10">
                   <label>Address</label>
-                  <input formControlName="address" type="text" class="form-control" />
+                  <input formControlName="address" type="text" placeholder="address" class="form-control" />
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-sm-10">
                   <label>Image</label>
-                  <input formControlName="avatarUrl" required type="file" class="form-control-file" id="exampleFormControlFile1">
+                  <input formControlName="avatarUrl" required type="file" class="form-control-file"
+                    id="exampleFormControlFile1">
                 </div>
               </div>
             </div>
           </div>
         </form>
-        
+
         <!-- <pre>{{ form.value | json }}</pre> -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" [disabled]="!form.valid" class="btn btn-primary" (click)="onSubmit()">Save</button>
+        <button type="submit" [disabled]="!formPackage1.valid" class="btn btn-primary"
+          (click)="onSubmit()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Package2-->
+<div class="modal fade" id="ModalPackage2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Create Charity For Poor Person</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formPackage2" (ngSubmit)="onSubmit()">
+          <div class="form-row">
+
+            <div class="form-group col-sm-12">
+              <div class="form-row-12">
+                <h5>1.Project Details</h5>
+              </div>
+              <input formControlName="confirm" type="hidden" class="form-control" />
+              <div class="form-row">
+                <div class="form-group col-sm-5 ">
+                  <label>Title</label>
+                  <input formControlName="title" type="text" class="form-control" placeholder="title" required />
+                </div>
+                <div class="form-group col-sm-5 offset-1">
+                  <label>Target</label>
+                  <input formControlName="target" type="number" placeholder="target" class="form-control" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-sm-11 ">
+                  <label>Description</label>
+                  <textarea formControlName="description" required class="form-control" id="exampleFormControlTextarea1"
+                    placeholder="description" rows="3"></textarea>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-sm-5 ">
+                  <label for="exampleFormControlFile1">Choose file accuracy<br>
+                    (number of poor households, difficult area...)</label>
+                  <input formControlName="accuracy" type="file" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+              </div>
+
+            </div>
+            <div class="form-group col-sm-12" formGroupName="restaurant">
+              <div class="form-row-12">
+                <h5>2.Restaurant Details</h5>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-sm-5 ">
+                  <label>Name Restaurant</label>
+                  <input formControlName="name" type="text" class="form-control" placeholder="name restaurant"
+                    required />
+                </div>
+                <div class="form-group col-sm-5 offset-1">
+                  <label>Phone Number</label>
+                  <input formControlName="phoneNumber" type="number" placeholder="phone number" class="form-control" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-sm-11 ">
+                  <label>Address</label>
+                  <textarea formControlName="address" type="text" placeholder="address" class="form-control"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-sm-12" formArrayName="listPeople" >
+              <div class="form-row-12">
+                <h5>3.Personal Details</h5>
+              </div>
+              <div class="form-group row" *ngFor="let c of listPeople().controls; index as i" [formGroupName]="i" >
+                <div class="col-sm-12" >
+                  <div class="form-row">
+                    <div class="form-group col-sm-5" >
+                      <label>Full Name</label>
+                      <input formControlName="name" name="name" required type="text" placeholder="fullname"
+                        class="form-control" />
+                    </div>
+                    <div class="form-group col-sm-5 offset-1">
+                      <label>DOB</label>
+                      <input formControlName="dob" name="dob" type="date" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-sm-5">
+                      <label>Gender</label>
+                      <div class="ml-2">
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" formControlName="gender" type="radio"
+                            name="gender" id="inlineRadio1" value="Male" checked>
+                          <label class="form-check-label" for="inlineRadio1">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" formControlName="gender" type="radio"
+                            name="gender" id="inlineRadio2" value="Female">
+                          <label class="form-check-label" for="inlineRadio2">Female</label>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="form-group col-sm-5 offset-1">
+                      <label>Address</label>
+                      <input formControlName="address" type="text" placeholder="address" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-sm-5">
+                      <label>Phone Number</label>
+                      <input formControlName="phoneNumber" type="text" placeholder="phone number"
+                        class="form-control" />
+                    </div>
+                    <div class="form-group col-sm-5 offset-1">
+                      <label>Email</label>
+                      <input formControlName="email" type="text" placeholder="email" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-auto">
+                      <button class="btn btn-success" (click)="addListPeople()">Add People</button>
+                    </div>
+                    <div class="form-group col-auto">
+                      <button class="btn btn-danger" (click)="removeListPeople(i)"
+                        *ngIf="listPeople().controls.length>1">Delete People</button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <button class="btn btn-success" (click)="addListPeople()">Add People</button>
+
+            </div>
+
+
+          </div>
+        </form>
+
+        <pre>{{ formPackage2.value | json }}</pre>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" [disabled]="!formPackage2.valid" class="btn btn-primary"
+          (click)="onSubmit()">Save</button>
       </div>
     </div>
   </div>

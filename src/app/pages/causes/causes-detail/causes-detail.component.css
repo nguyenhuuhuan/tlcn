@@ -32,3 +32,11 @@
   object-fit: cover;
   background-position: center center;
 }
+#money{
+  background-color: rgb(243, 196, 196);
+  height: 50px;
+  width: 100px;
+  text-align: center;
+  padding-top:15px ;
+  color:rgb(141, 22, 22);
+}

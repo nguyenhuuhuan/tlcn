@@ -1,6 +1,6 @@
 import { AuthService } from './../../auth.service';
-import { CausesService } from './../../service/causes.service';
-import { ICauses } from './../../service/causes';
+import { Package1Service } from '../../service/package1.service';
+import { IPackage1 } from '../../service/package1';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { switchMap,map } from 'rxjs/operators';
@@ -11,9 +11,9 @@ import { switchMap,map } from 'rxjs/operators';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  causesList:ICauses[];
+  package1List:IPackage1[];
   constructor(
-    private causesService:CausesService,
+    private package1Service:Package1Service,
     private activatedRoute:ActivatedRoute,
     private authService:AuthService
   ) {
@@ -33,6 +33,6 @@ export class HomeComponent implements OnInit {
     this.authService.logout()
   }
   getCauses():void{
-    this.causesService.getCausesList().subscribe(causesList=> this.causesList =causesList.slice(1,2))
+    this.package1Service.getPackage1List().subscribe(package1List=> this.package1List =package1List.slice(1,2))
   }
 }

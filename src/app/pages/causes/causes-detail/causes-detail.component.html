@@ -1,174 +1,302 @@
-<div class="pt-5" style="background-image: url(../../../assets/donate.jpg);">
-  <div class="container row ">
-      <div class="col-lg-8 p-5"  id="left">
-        <form class="form-group" [formGroup]  *ngIf="causesService.cause">
-          <div class="form-group">
-            <div class="form-inline">
-              <h1>{{cause.title}}</h1>
-            </div>
-            <div class="form-inline">
-              <h4>{{cause.description}}</h4>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col">
-              <h4>1. Choose your donate amount</h4>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-lg-6">
-              <button id="btn1" class="btn btn-outline-secondary">Give Once</button>
-            </div>
-            <div class="form-group col-lg-6">
-              <button id="btn1" class="btn btn-outline-secondary">Give Monthly</button>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-lg-4">
-              <button id="btn1" class="btn btn-outline-secondary">25$</button>
-            </div>
-            <div class="form-group col-lg-4">
-              <button id="btn1" class="btn btn-outline-secondary">50$</button>
-            </div>
-            <div class="form-group col-lg-4">
-              <button id="btn1" class="btn btn-outline-secondary">80$</button>
-            </div>
+<div class="container">
+  <div class="row justify-content-center">
 
-          </div>
-          <div class="form-row">
-            <div class="form-group col-lg-4">
-              <button id="btn1" class="btn btn-outline-secondary">150$</button>
-            </div>
-            <div class="form-group col-lg-8">
-              <input class="form-control" placeholder="Other" id="Other" />
-            </div>
-          </div>
-        </form>
-        <form class="form-group my-5" >
-          <div class="form-row">
-            <div class="form-group col">
-              <h4>2.Contact Details</h4>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-lg-4 ">
-              <label>Title</label>
-              <select class="form-control" id="input">
-                <option>Select</option>
-                <option>Mr</option>
-                <option>Mrs</option>
-                <option>Mr & Mrs</option>
-                <option>Ms</option>
-                <option>Miss</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="form-group col-lg-4 offset-lg-2">
-              <label>Date Of Birth</label>
-              <input type="date" class="form-control" id="input"/>
-            </div>
-          </div>
-            <div class="form-row">
-              <div class="form-group col-lg-6">
-                <label>First Name</label>
-                <input class="form-control" id="input"/>
-              </div>
-              <div class="form-group col-lg-6">
-                <label>Last Name</label>
-                <input type="text" class="form-control" id="input"/>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-lg-6">
-                <label>Email</label>
-                <input type="email" class="form-control" id="input"/>
-              </div>
-              <div class="form-group col-lg-6">
-                <label>Phone Number</label>
-                <input type="text" class="form-control" id="input"/>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-lg-12">
-                <label>Full Address</label>
-                <input type="text" class="form-control" placeholder="Start typing and select your address" id="input"/>
-              </div>
-            </div>
-        </form>
+    <!-- Post Content Column -->
+    <div class="col-lg-10" [formGroup] *ngIf="package1Service.package1">
 
-        <form class="form-group" >
-          <div class="form-row">
-            <div class="form-group col">
-              <h4>2.Contact Details</h4>
-            </div>
+      <!-- Title -->
+      <h1 class="mt-4">{{package1.title}}</h1>
+
+      <!-- Author -->
+      <p class="lead">
+        by
+        <a href="#">Start Bootstrap</a>
+      </p>
+
+      <hr>
+
+      <!-- Date/Time -->
+      <p>Posted on January 1, 2019 at 12:00 PM</p>
+
+      <hr>
+
+      <!-- Preview Image -->
+      <img class="img-fluid rounded" src={{package1.person.avatarUrl}} alt="">
+
+      <hr>
+
+      <div class="row justify-content-lg-around">
+        <div class="col-auto">
+          <div class="row">
+            <label>Target:</label>
           </div>
-          <div class="form-row">
-            <div class="form-group col-lg-12">
-              <label>Pay With</label>
-              <select type="text" class="form-control" id="input">
-                <option>Paypal</option>
-                <option>Credit Card</option>
-              </select>
-            </div>
+          <div class="row">
+            <h5 id="money"> ${{package1.target}} </h5>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="row">
+            <label>Raised:</label>
           </div>
 
-          <div class="form-row">
-            <div class="form-group col-lg-12">
-              <label>Cardholder Name</label>
-              <input type="text" class="form-control" id="input"/>
-            </div>
+          <div class="row">
+            <h5 id="money"> ${{package1.raised}} </h5>
           </div>
-
-          <div class="form-row">
-            <div class="form-group col-lg-6">
-              <label>Card Type</label>
-              <select class="form-control" id="input">
-                <option>Select</option>
-                <option>Visa</option>
-                <option>Master Card</option>
-              </select>
-            </div>
-            <div class="form-group col-lg-6">
-              <label>Card Number</label>
-              <input type="text" class="form-control" id="input"/>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group col-lg-4">
-              <label>Expiry Month</label>
-              <select class="form-control" id="input">
-                <option>Select</option>
-                <option>1-January</option>
-                <option>2-February</option>
-              </select>
-            </div>
-            <div class="form-group col-lg-4">
-              <label>Expiry Year</label>
-              <select class="form-control"  id="input">
-                <option>Select</option>
-                <option>2020</option>
-                <option>2021</option>
-              </select>
-            </div>
-            <div class="form-group col-lg-4">
-              <label>CVC</label>
-              <input type="number" class="form-control" id="input"/>
-            </div>
-          </div>
-          </form>
-          <form class="form-group" formGroup>
-            <div class="form-row">
-              <div class="form-group col">
-                <label>Please fix any error mark in red above to continue.</label>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-lg-12">
-                <button id="btn1" class="btn btn-danger">Donate</button>
-              </div>
-            </div>
-          </form>
+        </div>
       </div>
+      <hr>
+
+      <!-- Post Content -->
+      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error
+        quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus
+        inventore?</p>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum
+        rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius
+        illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
+
+      <blockquote class="blockquote">
+        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+        <footer class="blockquote-footer">Someone famous in
+          <cite title="Source Title">Source Title</cite>
+        </footer>
+      </blockquote>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam
+        sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam
+        tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui,
+        necessitatibus, est!</p>
+
+      <hr>
+
+      <!-- Comments Form -->
+      <div class="card my-4">
+        <h5 class="card-header">Leave a Comment:</h5>
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <textarea class="form-control" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Single Comment -->
+      <div class="media mb-4">
+        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+        <div class="media-body">
+          <h5 class="mt-0">Commenter Name</h5>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio,
+          vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec
+          lacinia congue felis in faucibus.
+        </div>
+      </div>
+
+      <!-- Comment with nested comments -->
+      <div class="media mb-4">
+        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+        <div class="media-body">
+          <h5 class="mt-0">Commenter Name</h5>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio,
+          vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec
+          lacinia congue felis in faucibus.
+
+          <div class="media mt-4">
+            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+            <div class="media-body">
+              <h5 class="mt-0">Commenter Name</h5>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
+              odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
+              fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+          </div>
+
+          <div class="media mt-4">
+            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+            <div class="media-body">
+              <h5 class="mt-0">Commenter Name</h5>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
+              odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
+              fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<div class="pt-5">
+  <div class="container row justify-content-lg-center">
+    <div class="col-lg-8 p-5" id="left">
+      <form class="form-group" >
+        <div class="form-row">
+          <div class="form-group col">
+            <h4>1. Choose your donate amount</h4>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-lg-6">
+            <button id="btn1" class="btn btn-outline-secondary">Give Once</button>
+          </div>
+          <div class="form-group col-lg-6">
+            <button id="btn1" class="btn btn-outline-secondary">Give Monthly</button>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-lg-4">
+            <button id="btn1" class="btn btn-outline-secondary">25$</button>
+          </div>
+          <div class="form-group col-lg-4">
+            <button id="btn1" class="btn btn-outline-secondary">50$</button>
+          </div>
+          <div class="form-group col-lg-4">
+            <button id="btn1" class="btn btn-outline-secondary">80$</button>
+          </div>
+
+        </div>
+        <div class="form-row">
+          <div class="form-group col-lg-4">
+            <button id="btn1" class="btn btn-outline-secondary">150$</button>
+          </div>
+          <div class="form-group col-lg-8">
+            <input class="form-control" placeholder="Other" id="Other" />
+          </div>
+        </div>
+      </form>
+      <form class="form-group my-5">
+        <div class="form-row">
+          <div class="form-group col">
+            <h4>2.Contact Details</h4>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-lg-4 ">
+            <label>Title</label>
+            <select class="form-control" id="input">
+              <option>Select</option>
+              <option>Mr</option>
+              <option>Mrs</option>
+              <option>Mr & Mrs</option>
+              <option>Ms</option>
+              <option>Miss</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group col-lg-4 offset-lg-2">
+            <label>Date Of Birth</label>
+            <input type="date" class="form-control" id="input" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-lg-6">
+            <label>First Name</label>
+            <input class="form-control" id="input" />
+          </div>
+          <div class="form-group col-lg-6">
+            <label>Last Name</label>
+            <input type="text" class="form-control" id="input" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-lg-6">
+            <label>Email</label>
+            <input type="email" class="form-control" id="input" />
+          </div>
+          <div class="form-group col-lg-6">
+            <label>Phone Number</label>
+            <input type="text" class="form-control" id="input" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-lg-12">
+            <label>Full Address</label>
+            <input type="text" class="form-control" placeholder="Start typing and select your address" id="input" />
+          </div>
+        </div>
+      </form>
+
+      <form class="form-group">
+        <div class="form-row">
+          <div class="form-group col">
+            <h4>2.Contact Details</h4>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-lg-12">
+            <label>Pay With</label>
+            <select type="text" class="form-control" id="input">
+              <option>Paypal</option>
+              <option>Credit Card</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-lg-12">
+            <label>Cardholder Name</label>
+            <input type="text" class="form-control" id="input" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-lg-6">
+            <label>Card Type</label>
+            <select class="form-control" id="input">
+              <option>Select</option>
+              <option>Visa</option>
+              <option>Master Card</option>
+            </select>
+          </div>
+          <div class="form-group col-lg-6">
+            <label>Card Number</label>
+            <input type="text" class="form-control" id="input" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-lg-4">
+            <label>Expiry Month</label>
+            <select class="form-control" id="input">
+              <option>Select</option>
+              <option>1-January</option>
+              <option>2-February</option>
+            </select>
+          </div>
+          <div class="form-group col-lg-4">
+            <label>Expiry Year</label>
+            <select class="form-control" id="input">
+              <option>Select</option>
+              <option>2020</option>
+              <option>2021</option>
+            </select>
+          </div>
+          <div class="form-group col-lg-4">
+            <label>CVC</label>
+            <input type="number" class="form-control" id="input" />
+          </div>
+        </div>
+      </form>
+      <form class="form-group" formGroup>
+        <div class="form-row">
+          <div class="form-group col">
+            <label>Please fix any error mark in red above to continue.</label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-lg-12">
+            <button id="btn1" class="btn btn-danger">Donate</button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

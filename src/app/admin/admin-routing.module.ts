@@ -1,3 +1,5 @@
+import { AccountManagerComponent } from './pages/account-manager/account-manager.component';
+import { PostComponent } from './pages/post/post.component';
 import { AuthGuard } from './../auth.guard';
 import { AccountComponent } from './pages/account/account.component';
 import { HotronguoingheoComponent } from './pages/hotronguoingheo/hotronguoingheo.component';
@@ -15,7 +17,9 @@ const adminRoutes: Routes = [
       {path:'nguoituthien',component:NguoituthienComponent},
       {path:'package1', component:HotronguoingheoComponent},
       {path:'account', component:AccountComponent},
-      {path:'person', component:PersonComponent}
+      {path:'person', component:PersonComponent},
+      {path:'post',component:PostComponent},
+      {path:'accountManager',component:AccountManagerComponent}
   ]
 }
 ];

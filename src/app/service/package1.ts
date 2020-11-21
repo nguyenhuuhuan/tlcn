@@ -1,6 +1,6 @@
 import { Data } from '@angular/router';
 
-export class ICauses{
+export class IPackage1{
   id:number;
   title:string;
   imageUrl:string;
@@ -13,8 +13,11 @@ export class ICauses{
     id:number;
     firstName:string;
     lastName:string;
+    gender:string
     dob:Date;
     address:string;
     avatarUrl:string;
   }
+  createdBy:string;
+  createdDate:Date
 }
