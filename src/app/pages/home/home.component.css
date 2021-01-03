@@ -6,7 +6,7 @@
 
 h3{
   color:rgb(134, 33, 33);
-  font-size: 50px;
+  font-size: 30px;
 }
 #h5{
   background-color: rgb(243, 196, 196);
@@ -15,11 +15,14 @@ h3{
   text-align: center;
   padding-top:15px ;
   color:rgb(141, 22, 22);
+  border-radius: 5%;
 }
 #donate{
   height: 50px;
 }
-
+#demo{
+  background-color: #f15b51;
+}
 
 .featurette-divider {
   margin: 5rem 0; /* Space out the Bootstrap <hr> more */

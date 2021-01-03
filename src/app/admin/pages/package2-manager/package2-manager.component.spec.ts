@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NguoituthienComponent } from './nguoituthien.component';
+import { Package2ManagerComponent } from './package2-manager.component';
 
-describe('NguoituthienComponent', () => {
-  let component: NguoituthienComponent;
-  let fixture: ComponentFixture<NguoituthienComponent>;
+describe('Package2ManagerComponent', () => {
+  let component: Package2ManagerComponent;
+  let fixture: ComponentFixture<Package2ManagerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NguoituthienComponent ]
+      declarations: [ Package2ManagerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NguoituthienComponent);
+    fixture = TestBed.createComponent(Package2ManagerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

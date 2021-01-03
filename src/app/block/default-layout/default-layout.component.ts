@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare var top:any
 
 @Component({
   selector: 'app-default-layout',

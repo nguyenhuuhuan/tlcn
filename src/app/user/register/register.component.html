@@ -8,52 +8,56 @@
         <div class="col-lg-7">
           <div class="p-5">
             <div class="text-center">
-              <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+              <h1 class="h4 text-gray-900 mb-4">Tạo Tài Khoản!</h1>
             </div>
             <br>
-            <form class="user" [formGroup]="userService.formModel" autocomplete="off" (submit)="onSubmit()" >
-              <div class="form-group row">
-                <div class="col-sm-6 mb-3 mb-sm-0" >
-                  <input formControlName="userName" type="text" class="form-control form-control-user " id="exampleUserName" placeholder="UserName" >
-                  <label class="text-danger" *ngIf="userService.formModel.get('userName').touched && userService.formModel.get('userName').errors?.required">This field is mandatory.</label>
-                </div>
-                <div class="col-sm-6">
-                  <input formControlName="fullName" type="text" class="form-control form-control-user" id="exampleFullName" placeholder="Full Name">
-
-                </div>
-              </div>
-              <div class="form-group">          
-                  <input formControlName="phoneNumber" type="text" class="form-control form-control-user" id="exampleLastPhone" placeholder="Phone Number">
-              </div>
-              <div class="form-group">
-                <input formControlName="email" type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
-                <label class="text-danger" *ngIf="userService.formModel.get('email').touched && userService.formModel.get('email').errors?.full">Invalid email address.</label>
+            <form class="user" autocomplete="off" *ngIf="!isSuccessful" name="form"
+              (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
+              <div class="form-group px-5">
+                <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email
+                  #email="ngModel" class="form-control form-control-user " placeholder="Email..." />
+                <div class="form-group ml-3"><label class="text-danger" *ngIf="email.errors?.required">Yêu cầu Email</label></div>
+                <div class="form-group ml-3"><label class="text-danger" *ngIf="email.errors?.email">Email phải được xác thực</label></div>
 
               </div>
+              <div class="form-group px-5">
+                <input type="text" class="form-control" name="fullName" [(ngModel)]="form.fullName" fullName
+                  #fullName="ngModel" type="text" class="form-control form-control-user" id="exampleFullName"
+                  placeholder="Họ và Tên...">
+              </div>
+              <div class="form-group px-5">
+                <input type="number" class="form-control" name="phoneNumber" [(ngModel)]="form.phoneNumber" required
+                  phoneNumber #phoneNumber="ngModel" class="form-control form-control-user"
+                  placeholder="Số điện thoại...">
+              </div>
 
-              <div class="form-group row" formGroupName="passwords">
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                  <input formControlName="password" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
-                  <label class="text-danger" *ngIf="userService.formModel.get('passwords.password').touched && userService.formModel.get('passwords.password').errors?.required">This field is mandatory.</label>
-                  <label class="text-danger" *ngIf="userService.formModel.get('passwords.password').touched && userService.formModel.get('passwords.password').errors?.minlength">Minimun 4 characters required.</label>
-                </div>
-                <div class="col-sm-6">
+              <div class="form-group px-5">
+                <input type="text" class="form-control" name="address" [(ngModel)]="form.address" #address="ngModel"
+                  type="text" class="form-control form-control-user" placeholder="Địa chỉ...">
+              </div>
+              <div class="form-group px-5">
+                <input type="password" name="password" [(ngModel)]="form.password" #password="ngModel"
+                  class="form-control form-control-user" required minlength="6" placeholder="Password...">
+                <div class="form-group ml-3"><label class="text-danger" *ngIf="password.errors?.required">Yêu cầu Password</label></div>
+                <div class="form-group ml-3"><label class="text-danger" *ngIf="password.errors?.minlength">Password phải có ít nhất 6 ký tự</label></div>
+                <!-- <div class="col-sm-6">
                   <input formControlName="confirmPassword" type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">
-                  <label class="text-danger" *ngIf="userService.formModel.get('passwords.confirmPassword').touched && userService.formModel.get('passwords.confirmPassword').errors?.passwordMismatch">Confirm Password does not match.</label>
-                </div>
+                  <label class="text-danger" *ngIf="formModel.get('confirmPassword').touched && formModel.get('confirmPassword').errors?.passwordMismatch">Confirm Password does not match.</label>
+                </div> -->
               </div>
-              <button href="login.html" class="btn btn-primary btn-user btn-block" [disabled]="!userService.formModel.valid">
-                Register Account
-              </button>
-
-
+              <div class="form-group px-5">
+                <button class="btn btn-primary btn-user btn-block">
+                  Đăng ký tài khoản
+                </button>
+              </div>
             </form>
+            <h3 *ngIf="isSuccessful" class="text-center">Chào mừng thành viên mới!!!</h3>
             <hr>
             <div class="text-center">
-              <a class="small" href="forgot-password.html">Forgot Password?</a>
+              <a class="small" href="forgot-password.html">Quên Mật Khẩu?</a>
             </div>
             <div class="text-center">
-              <a class="small" href="login.html">Already have an account? Login!</a>
+              <a class="small" routerLink="/user/login">Đã có tài khoản? Đăng nhập!</a>
             </div>
 
           </div>

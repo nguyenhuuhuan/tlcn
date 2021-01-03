@@ -2,133 +2,39 @@
   <div class="row justify-content-center">
 
     <!-- Post Content Column -->
-    <div class="col-lg-10" [formGroup] *ngIf="package1Service.package1">
+    <div class="col-lg-10" *ngIf="currentTutorial">
 
       <!-- Title -->
-      <h1 class="mt-4">{{package1.title}}</h1>
+      <h1 class="mt-4" >{{currentTutorial.title}}</h1>
 
       <!-- Author -->
-      <p class="lead">
-        by
-        <a href="#">Start Bootstrap</a>
+      <p class="lead" style="font-size: 16px;">
+
+        <a href="#">Thời gian đăng bài: </a>
+        <span style="opacity: 0.6;">
+          ngày {{currentTutorial.createDate | date: 'dd/MM/yyyy'}} vào lúc {{currentTutorial.createDate | date:'hh:mm'}}
+        </span>
       </p>
-
       <hr>
-
-      <!-- Date/Time -->
-      <p>Posted on January 1, 2019 at 12:00 PM</p>
-
-      <hr>
-
-      <!-- Preview Image -->
-      <img class="img-fluid rounded" src={{package1.person.avatarUrl}} alt="">
-
-      <hr>
-
       <div class="row justify-content-lg-around">
         <div class="col-auto">
           <div class="row">
-            <label>Target:</label>
+            <label>Cần huy động:</label>
           </div>
           <div class="row">
-            <h5 id="money"> ${{package1.target}} </h5>
+            <h5 id="money"> ${{currentTutorial.target}} </h5>
           </div>
         </div>
         <div class="col-auto">
           <div class="row">
-            <label>Raised:</label>
+            <label>Đã khuyên góp:</label>
           </div>
-
           <div class="row">
-            <h5 id="money"> ${{package1.raised}} </h5>
+            <h5 id="money"> ${{currentTutorial.raised}} </h5>
           </div>
         </div>
       </div>
       <hr>
-
-      <!-- Post Content -->
-      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error
-        quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus
-        inventore?</p>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum
-        rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius
-        illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
-
-      <blockquote class="blockquote">
-        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-        <footer class="blockquote-footer">Someone famous in
-          <cite title="Source Title">Source Title</cite>
-        </footer>
-      </blockquote>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam
-        sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam
-        tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui,
-        necessitatibus, est!</p>
-
-      <hr>
-
-      <!-- Comments Form -->
-      <div class="card my-4">
-        <h5 class="card-header">Leave a Comment:</h5>
-        <div class="card-body">
-          <form>
-            <div class="form-group">
-              <textarea class="form-control" rows="3"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </div>
-      </div>
-
-      <!-- Single Comment -->
-      <div class="media mb-4">
-        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-        <div class="media-body">
-          <h5 class="mt-0">Commenter Name</h5>
-          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio,
-          vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec
-          lacinia congue felis in faucibus.
-        </div>
-      </div>
-
-      <!-- Comment with nested comments -->
-      <div class="media mb-4">
-        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-        <div class="media-body">
-          <h5 class="mt-0">Commenter Name</h5>
-          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio,
-          vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec
-          lacinia congue felis in faucibus.
-
-          <div class="media mt-4">
-            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-            <div class="media-body">
-              <h5 class="mt-0">Commenter Name</h5>
-              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
-              odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-              fringilla. Donec lacinia congue felis in faucibus.
-            </div>
-          </div>
-
-          <div class="media mt-4">
-            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-            <div class="media-body">
-              <h5 class="mt-0">Commenter Name</h5>
-              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
-              odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-              fringilla. Donec lacinia congue felis in faucibus.
-            </div>
-          </div>
-
-        </div>
-      </div>
-
     </div>
 
   </div>
@@ -137,166 +43,79 @@
 <div class="pt-5">
   <div class="container row justify-content-lg-center">
     <div class="col-lg-8 p-5" id="left">
-      <form class="form-group" >
+      <form class="form-group" [formGroup]="formCharity">
         <div class="form-row">
           <div class="form-group col">
-            <h4>1. Choose your donate amount</h4>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-lg-6">
-            <button id="btn1" class="btn btn-outline-secondary">Give Once</button>
-          </div>
-          <div class="form-group col-lg-6">
-            <button id="btn1" class="btn btn-outline-secondary">Give Monthly</button>
+            <h4>1.Chọn giá trị bạn muốn donate</h4>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-lg-4">
-            <button id="btn1" class="btn btn-outline-secondary">25$</button>
+            <button class="test" id="btn1" (click)="selectDonate(25)" class="btn btn-outline-secondary" value="25">25$</button>
           </div>
           <div class="form-group col-lg-4">
-            <button id="btn1" class="btn btn-outline-secondary">50$</button>
+            <button id="btn1" (click)="selectDonate(50)" class="btn btn-outline-secondary" value="50">50$</button>
           </div>
           <div class="form-group col-lg-4">
-            <button id="btn1" class="btn btn-outline-secondary">80$</button>
+            <button id="btn1" (click)="selectDonate(80)" class="btn btn-outline-secondary" value="80">80$</button>
           </div>
-
         </div>
         <div class="form-row">
           <div class="form-group col-lg-4">
-            <button id="btn1" class="btn btn-outline-secondary">150$</button>
+            <button id="btn1" (click)="selectDonate(150)" class="btn btn-outline-secondary" value="150">150$</button>
           </div>
           <div class="form-group col-lg-8">
-            <input class="form-control" placeholder="Other" id="Other" />
+            <input class="form-control" formControlName="donate" [(ngModel)]="donate"
+              placeholder="Other" id="Other" />
           </div>
         </div>
-      </form>
-      <form class="form-group my-5">
-        <div class="form-row">
-          <div class="form-group col">
-            <h4>2.Contact Details</h4>
+
+        <h4>2. Chọn hình thức thanh toán</h4>
+        <input type="radio" value="visa" formControlName="card" [(ngModel)]='card'> <img (click)="changepttt(1)" style="cursor: pointer; width: 100px;height: 60px;" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDY0IDY0IiBoZWlnaHQ9IjY0cHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA2NCA2NCIgd2lkdGg9IjY0cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxnPjxnPjxnPjxnPjxwb2x5Z29uIGZpbGw9IiMzQzU4QkYiIHBvaW50cz0iMjMuNiw0MSAyNi44LDIzIDMxLjgsMjMgMjguNyw0MSAgICAgIi8+PC9nPjwvZz48Zz48Zz48cG9seWdvbiBmaWxsPSIjMjkzNjg4IiBwb2ludHM9IjIzLjYsNDEgMjcuNywyMyAzMS44LDIzIDI4LjcsNDEgICAgICIvPjwvZz48L2c+PGc+PGc+PHBhdGggZD0iTTQ2LjgsMjMuMmMtMS0wLjQtMi42LTAuOC00LjYtMC44Yy01LDAtOC42LDIuNS04LjYsNi4xYzAsMi43LDIuNSw0LjEsNC41LDVjMiwwLjksMi42LDEuNSwyLjYsMi4zICAgICAgYzAsMS4yLTEuNiwxLjgtMywxLjhjLTIsMC0zLjEtMC4zLTQuOC0xbC0wLjctMC4zbC0wLjcsNC4xYzEuMiwwLjUsMy40LDEsNS43LDFjNS4zLDAsOC44LTIuNSw4LjgtNi4zYzAtMi4xLTEuMy0zLjctNC4zLTUgICAgICBjLTEuOC0wLjktMi45LTEuNC0yLjktMi4zYzAtMC44LDAuOS0xLjYsMi45LTEuNmMxLjcsMCwyLjksMC4zLDMuOCwwLjdsMC41LDAuMkw0Ni44LDIzLjJMNDYuOCwyMy4yeiIgZmlsbD0iIzNDNThCRiIvPjwvZz48L2c+PGc+PGc+PHBhdGggZD0iTTQ2LjgsMjMuMmMtMS0wLjQtMi42LTAuOC00LjYtMC44Yy01LDAtNy43LDIuNS03LjcsNi4xYzAsMi43LDEuNiw0LjEsMy42LDVjMiwwLjksMi42LDEuNSwyLjYsMi4zICAgICAgYzAsMS4yLTEuNiwxLjgtMywxLjhjLTIsMC0zLjEtMC4zLTQuOC0xbC0wLjctMC4zbC0wLjcsNC4xYzEuMiwwLjUsMy40LDEsNS43LDFjNS4zLDAsOC44LTIuNSw4LjgtNi4zYzAtMi4xLTEuMy0zLjctNC4zLTUgICAgICBjLTEuOC0wLjktMi45LTEuNC0yLjktMi4zYzAtMC44LDAuOS0xLjYsMi45LTEuNmMxLjcsMCwyLjksMC4zLDMuOCwwLjdsMC41LDAuMkw0Ni44LDIzLjJMNDYuOCwyMy4yeiIgZmlsbD0iIzI5MzY4OCIvPjwvZz48L2c+PGc+PGc+PHBhdGggZD0iTTU1LjQsMjNjLTEuMiwwLTIuMSwwLjEtMi42LDEuM0w0NS4zLDQxaDUuNGwxLTNoNi40bDAuNiwzaDQuOGwtNC4yLTE4SDU1LjR6IE01My4xLDM1ICAgICAgYzAuMy0wLjksMi01LjMsMi01LjNjMCwwLDAuNC0xLjEsMC43LTEuOGwwLjMsMS43YzAsMCwxLDQuNSwxLjIsNS41SDUzLjFMNTMuMSwzNXoiIGZpbGw9IiMzQzU4QkYiLz48L2c+PC9nPjxnPjxnPjxwYXRoIGQ9Ik01Ni42LDIzYy0xLjIsMC0yLjEsMC4xLTIuNiwxLjNMNDUuMyw0MWg1LjRsMS0zaDYuNGwwLjYsM2g0LjhsLTQuMi0xOEg1Ni42eiBNNTMuMSwzNSAgICAgIGMwLjQtMSwyLTUuMywyLTUuM2MwLDAsMC40LTEuMSwwLjctMS44bDAuMywxLjdjMCwwLDEsNC41LDEuMiw1LjVINTMuMUw1My4xLDM1eiIgZmlsbD0iIzI5MzY4OCIvPjwvZz48L2c+PGc+PGc+PHBhdGggZD0iTTE0LjQsMzUuNkwxMy45LDMzYy0wLjktMy0zLjgtNi4zLTctNy45bDQuNSwxNmg1LjRsOC4xLTE4aC01LjRMMTQuNCwzNS42eiIgZmlsbD0iIzNDNThCRiIvPjwvZz48L2c+PGc+PGc+PHBhdGggZD0iTTE0LjQsMzUuNkwxMy45LDMzYy0wLjktMy0zLjgtNi4zLTctNy45bDQuNSwxNmg1LjRsOC4xLTE4aC00LjRMMTQuNCwzNS42eiIgZmlsbD0iIzI5MzY4OCIvPjwvZz48L2c+PGc+PGc+PHBhdGggZD0iTTAuNSwyM2wwLjksMC4yYzYuNCwxLjUsMTAuOCw1LjMsMTIuNSw5LjhsLTEuOC04LjVjLTAuMy0xLjItMS4yLTEuNS0yLjMtMS41SDAuNXoiIGZpbGw9IiNGRkJDMDAiLz48L2c+PC9nPjxnPjxnPjxwYXRoIGQ9Ik0wLjUsMjNMMC41LDIzYzYuNCwxLjUsMTEuNyw1LjQsMTMuNCw5LjlsLTEuNy03LjFjLTAuMy0xLjItMS4zLTEuOS0yLjQtMS45TDAuNSwyM3oiIGZpbGw9IiNGNzk4MUQiLz48L2c+PC9nPjxnPjxnPjxwYXRoIGQ9Ik0wLjUsMjNMMC41LDIzYzYuNCwxLjUsMTEuNyw1LjQsMTMuNCw5LjlMMTIuNywyOWMtMC4zLTEuMi0wLjctMi40LTIuMS0yLjlMMC41LDIzeiIgZmlsbD0iI0VEN0MwMCIvPjwvZz48L2c+PC9nPjxnPjxwYXRoIGQ9Ik0xOS40LDM1TDE2LDMxLjZsLTEuNiwzLjhsLTAuNC0yLjVjLTAuOS0zLTMuOC02LjMtNy03LjlsNC41LDE2aDUuNEwxOS40LDM1eiIgZmlsbD0iIzA1MTI0NCIvPjwvZz48Zz48cG9seWdvbiBmaWxsPSIjMDUxMjQ0IiBwb2ludHM9IjI4LjcsNDEgMjQuNCwzNi42IDIzLjYsNDEgMjguNyw0MSAgICIvPjwvZz48Zz48cGF0aCBkPSJNNDAuMiwzNC44TDQwLjIsMzQuOGMwLjQsMC40LDAuNiwwLjcsMC41LDEuMWMwLDEuMi0xLjYsMS44LTMsMS44Yy0yLDAtMy4xLTAuMy00LjgtMWwtMC43LTAuM2wtMC43LDQuMSAgICBjMS4yLDAuNSwzLjQsMSw1LjcsMWMzLjIsMCw1LjgtMC45LDcuMy0yLjVMNDAuMiwzNC44eiIgZmlsbD0iIzA1MTI0NCIvPjwvZz48Zz48cGF0aCBkPSJNNDYsNDFoNC43bDEtM2g2LjRsMC42LDNoNC44bC0xLjctNy4zbC02LTUuOGwwLjMsMS42YzAsMCwxLDQuNSwxLjIsNS41aC00LjJjMC40LTEsMi01LjMsMi01LjMgICAgYzAsMCwwLjQtMS4xLDAuNy0xLjgiIGZpbGw9IiMwNTEyNDQiLz48L2c+PC9nPjwvc3ZnPg==" alt="">
+        <input type="radio" value="jcb" formControlName="card" [(ngModel)]='card'><img (click)="changepttt(2)" style="cursor: pointer; width: 100px;height: 60px;" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDY0IDY0IiBoZWlnaHQ9IjY0cHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA2NCA2NCIgd2lkdGg9IjY0cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxnPjxnPjxwYXRoIGQ9Ik05LjUsOS42QzQuNyw5LjYsMSwxMi43LDEsMTguMXYxNS40YzAuNCwxLjksMi40LDMuMyw0LjYsMy4zYzIuNSwwLDQuMy0xLjgsNC4zLTRWMjVoNi44djcuNyAgICBjMCw0LjMtNS41LDYuNS05LjUsNi41Yy0yLjMsMC00LjUtMC43LTYuMS0xLjl2MTdoMTAuOGMzLjgsMCw4LjItMy42LDguMi04LjJWOS42SDkuNXoiIGZpbGw9IiMxMTc0Q0UiLz48L2c+PGc+PHBhdGggZD0iTTEsMTguMXYxNS40YzAuNCwxLjksMi40LDMuMyw0LjYsMy4zYzIuNSwwLDQuMy0xLjgsNC4zLTRWMjVoNi44djcuN2MwLDQuMy01LjUsNi41LTkuNSw2LjUgICAgYy0yLjMsMC00LjUtMC43LTYuMS0xLjl2MTdoMTAuOGMzLjgsMCw4LjItMy42LDguMi04LjJWOS42IiBmaWxsPSIjMEY1NDlEIi8+PC9nPjxnPjxwYXRoIGQ9Ik0xNi42LDI1djcuN2MwLDQuMy01LjUsNi41LTkuNSw2LjVjLTIuMywwLTQuNS0wLjctNi4xLTEuOXYxN2gxMC44YzMuOCwwLDguMi0zLjYsOC4yLTguMiIgZmlsbD0iIzAyMzc1RSIvPjwvZz48Zz48Zz48cGF0aCBkPSJNNDcuMywzNi42aDQuN2MxLjIsMCwyLjMtMS4xLDIuMy0yLjNzLTEuMS0yLjMtMi4zLTIuM2gtNC43VjM2LjZ6IiBmaWxsPSIjMTQ2NjQzIi8+PC9nPjxnPjxwYXRoIGQ9Ik01Mi42LDkuNmMtNC45LDAtOC41LDMuMS04LjUsOC40VjI1aDEyLjZjMS44LDAsMy4zLDEuNSwzLjMsMy4zcy0xLjUsMy4zLTMuMywzLjNjMiwwLDMuNiwxLjQsMy42LDMuMiAgICAgYzAsMS44LTEuNSwzLjItMy42LDMuMkg0NHYxNi4zaDEwLjhjMy44LDAsOC4yLTMuNiw4LjItOC4yVjkuNkg1Mi42eiIgZmlsbD0iIzFCQ0MzOCIvPjwvZz48Zz48cGF0aCBkPSJNNDQsMTguMVYyNWgxMi42YzEuOCwwLDMuMywxLjUsMy4zLDMuM3MtMS41LDMuMy0zLjMsMy4zYzIsMCwzLjYsMS40LDMuNiwzLjJjMCwxLjgtMS41LDMuMi0zLjYsMy4ySDQ0ICAgICB2MTYuM2gxMC44YzMuOCwwLDguMi0zLjYsOC4yLTguMlY5LjYiIGZpbGw9IiMzMjk5NDciLz48L2c+PGc+PHBhdGggZD0iTTU5LjksMjguM2MwLDEuOC0xLjUsMy4zLTMuMywzLjNjMiwwLDMuNiwxLjQsMy42LDMuMmMwLDEuOC0xLjUsMy4yLTMuNiwzLjJINDR2MTYuM2gxMC44ICAgICBjMy44LDAsOC4yLTMuNiw4LjItOC4yIiBmaWxsPSIjMTQ2NjQzIi8+PC9nPjxnPjxwYXRoIGQ9Ik01NC4yLDI4LjdjMC0xLjItMS4xLTIuMy0yLjMtMi4zaC00LjZ2NC41SDUyQzUzLjIsMzAuOSw1NC4yLDI5LjksNTQuMiwyOC43eiIgZmlsbD0iIzE0NjY0MyIvPjwvZz48L2c+PGc+PHBhdGggZD0iTTMwLjksOS42Yy00LjksMC04LjUsMy4xLTguNSw4LjR2OC42YzEuMi0xLDIuNy0xLjcsNC4zLTEuN2gxMS40djIuNGMtMi43LTAuNi01LjMtMC45LTYuNi0wLjkgICAgYy0yLjgsMC01LjEsMi4zLTUuMSw1LjFjMCwyLjgsMi4zLDUuMSw1LjEsNS4xYzEuMywwLDMuOS0wLjIsNi42LTAuOFYzOEgyNi43Yy0xLjYsMC0zLjItMC42LTQuMy0xLjd2MThoMTAuOCAgICBjMy44LDAsOC4yLTMuNiw4LjItOC4yVjkuNkgzMC45eiIgZmlsbD0iI0UyMEUzNyIvPjwvZz48Zz48cGF0aCBkPSJNMjIuNCwxOC4xdjguNmMxLjItMSwyLjctMS43LDQuMy0xLjdoMTEuNHYyLjRjLTIuNy0wLjYtNS4zLTAuOS02LjYtMC45Yy0yLjgsMC01LjEsMi4zLTUuMSw1LjEgICAgYzAsMi44LDIuMyw1LjEsNS4xLDUuMWMxLjMsMCwzLjktMC4yLDYuNi0wLjhWMzhIMjYuN2MtMS42LDAtMy4yLTAuNi00LjMtMS43djE4aDEwLjhjMy44LDAsOC4yLTMuNiw4LjItOC4yVjkuNiIgZmlsbD0iI0I0MUYzNiIvPjwvZz48Zz48cGF0aCBkPSJNMzguMSwyNXYyLjRjLTIuNy0wLjYtNS4zLTAuOS02LjYtMC45Yy0yLjgsMC01LjEsMi4zLTUuMSw1LjFjMCwyLjgsMi4zLDUuMSw1LjEsNS4xICAgIGMxLjMsMCwzLjktMC4yLDYuNi0wLjhWMzhIMjYuN2MtMS42LDAtMy4yLTAuNi00LjMtMS43djE4aDEwLjhjMy44LDAsOC4yLTMuNiw4LjItOC4yIiBmaWxsPSIjNzIwQTFFIi8+PC9nPjwvZz48L3N2Zz4=" alt="">
+        <input type="radio" value="mastercard" formControlName="card" [(ngModel)]='card'><img (click)="changepttt(3)" style="cursor: pointer; width: 100px;height: 60px;"  src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxMDBweCIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMTYwIDEwMCIgd2lkdGg9IjE2MHB4IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnNrZXRjaD0iaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoL25zIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PHRpdGxlLz48ZGVmcy8+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSI+PGcgaWQ9Ik1hc3RlciIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEuMDAwMDAwLCAwLjAwMDAwMCkiPjxwYXRoIGQ9Ik0xNDksMS4wMTE0NjY4N2UtMDYgQzE0MSwxLjc2NjQ0NTg4ZS0wNiA1Ni4zMDA3ODEyLC0xLjYwMzE4MzczZS0wNiA5LDEuMDExNDY2ODdlLTA2IEM1LDEuMjMyNTc1MzJlLTA2IDEsNC4wMDAwMDEwMSAxLDguMDAwMDAxMDEgTDEsODguMDAwMDAxIEMwLjk5OTk5OTUzNyw5Ni4wMDAwMDEgNSwxMDAuMDAwMDAxIDEzLDEwMC4wMDAwMDEgQzU3LjYyMzIwOTYsMTAwLjAwMDAwMSAxNDEsMTAwLjAwMDAwMiAxNDksMTAwLjAwMDAwMSBDMTU3LDEwMC4wMDAwMDEgMTYxLDk2LjAwMDAwMSAxNjEsODguMDAwMDAxIEwxNjEsMTIuMDAwMDAxIEMxNjEsNC4wMDAwMDEwMSAxNTcsMS4wMTE0NjY4N2UtMDYgMTQ5LDEuMDExNDY2ODdlLTA2IFogTTE0OSwxLjAxMTQ2Njg3ZS0wNiIgZmlsbD0iIzI2NTY5NyIgaWQ9IlJlY3RhbmdsZS0xIi8+PHBhdGggZD0iTTE1MC41NDUyMzUsNTAuNSBDMTUwLjU1MTgxMiw3My43Mzc3NjU0IDEzMS45MTk1OTcsOTIuNTc5MjczNyAxMDguOTI5NTMsOTIuNTg1NDQ2OSBDODUuOTM4OTkzMyw5Mi41OTExNDUzIDY3LjI5ODc5MTksNzMuNzU5MTM0MSA2Ny4yOTI2ODQ2LDUwLjUyMTM2ODcgTDY3LjI5MjY4NDYsNTAuNSBDNjcuMjg2NTc3MiwyNy4yNjI3MDk1IDg1LjkxODc5MTksOC40MjAyNTE0IDEwOC45MDc5MTksOC40MTQwNzgyMSBDMTMxLjg5ODQ1Niw4LjQwNzkwNTAzIDE1MC41MzkxMjgsMjcuMjQwODY1OSAxNTAuNTQ1MjM1LDUwLjQ3ODYzMTMgTDE1MC41NDUyMzUsNTAuNSBDMTUwLjU0NTIzNSw1MC41IDE1MC41NDUyMzUsNTAuNDkyNDAyMiAxNTAuNTQ1MjM1LDUwLjUgTDE1MC41NDUyMzUsNTAuNSBMMTUwLjU0NTIzNSw1MC41IFogTTE1MC41NDUyMzUsNTAuNSIgZmlsbD0iI0RGQUMxNiIgaWQ9InBhdGgyMjY4Ii8+PHBhdGggZD0iTTUyLjgxMjU1MDMsOC40MjUgQzI5Ljk1ODcyNDgsOC41NzE3MzE4NCAxMS40NTQyOTUzLDI3LjM2NTI3OTMgMTEuNDU0Mjk1Myw1MC41IEMxMS40NTQyOTUzLDczLjcyNDk0NDEgMzAuMTAyOTUzLDkyLjU3NDUyNTEgNTMuMDgwODA1NCw5Mi41NzQ1MjUxIEM2My44NjUwMzM2LDkyLjU3NDUyNTEgNzMuNjk1MTAwNyw4OC40MjA0NDY5IDgxLjA5MjA4MDUsODEuNjExODk5NCBDODEuMDkxNjEwNyw4MS42MTE4OTk0IDgxLjA5MDY3MTEsODEuNjEwOTQ5NyA4MS4wODg3OTE5LDgxLjYxIEw4MS4wOTc3MTgxLDgxLjYxIEM4Mi42MTIzNDksODAuMjE0ODYwMyA4NC4wMjUwMzM2LDc4LjcwOTU1MzEgODUuMzIzNTU3LDc3LjEwNDUyNTEgTDc2Ljc5NTMwMiw3Ny4xMDQ1MjUxIEM3NS42NTY1MTAxLDc1LjcxNDEzNDEgNzQuNjIxNTQzNiw3NC4yNjUzMzUyIDczLjY5MTgxMjEsNzIuNzcwNDc0OSBMODguNDAwMjY4NSw3Mi43NzA0NzQ5IEM4OS4yOTQ3NjUxLDcxLjMyMzU3NTQgOTAuMTA0Njk4LDY5LjgyMTExNzMgOTAuODIzNDg5OSw2OC4yNjUgTDcxLjI2MzQyMjgsNjguMjY1IEM3MC41OTY3Nzg1LDY2LjgyMDQ3NDkgNzAuMDE3OTg2Niw2NS4zNDMxODQ0IDY5LjUyMzc1ODQsNjMuODQ0NTI1MSBMOTIuNTY1MDMzNiw2My44NDQ1MjUxIEM5My45NTM3NTg0LDU5LjY1MDU1ODcgOTQuNzA3MzE1NCw1NS4xNjM2MDM0IDk0LjcwNzMxNTQsNTAuNDk5NTI1MSBDOTQuNzA3MzE1NCw0Ny40MDcyMzQ2IDk0LjM3NTYzNzYsNDQuMzkyMzQ2NCA5My43NDc5ODY2LDQxLjQ4OTUyNTEgTDY4LjMwMTgxMjEsNDEuNDg5NTI1MSBDNjguNjE3MDQ3LDM5Ljk5NTYxNDUgNjkuMDE0OTY2NCwzOC41MTk3NDg2IDY5LjQ4OTQ2MzEsMzcuMDY5NTI1MSBMOTIuNTM5MTk0NiwzNy4wNjk1MjUxIEM5Mi4wMjM4MjU1LDM1LjUyNjIyOTEgOTEuNDI1MzAyLDM0LjAyMjM0NjQgOTAuNzQ0NTYzOCwzMi41NjQ1MjUxIEw3MS4yNjEwNzM4LDMyLjU2NDUyNTEgQzcxLjk2Mzg5MjYsMzEuMDQ2ODcxNSA3Mi43NjAyMDEzLDI5LjU3MDUzMDcgNzMuNjQ5NTMwMiwyOC4xNDUgTDg4LjM0NzE4MTIsMjguMTQ1IEM4Ny4zNjkwNjA0LDI2LjU2OTg4ODMgODYuMjg2NjQ0MywyNS4wNjUwNTU5IDg1LjExNjM3NTgsMjMuNjM5NTI1MSBMNzYuOTIxNjc3OSwyMy42Mzk1MjUxIEM3OC4xODg3MjQ4LDIyLjEzMjMxODQgNzkuNTgzNTU3LDIwLjcxMjk2MDkgODEuMDk3NzE4MSwxOS4zODk1MjUxIEM3My43MDAyNjg1LDEyLjU4MDAyNzkgNjMuODY3MzgyNiw4LjQyNSA1My4wODA4MDU0LDguNDI1IEM1Mi45OTEwNzM4LDguNDI1IDUyLjkwMjI4MTksOC40MjQ1MjUxNCA1Mi44MTI1NTAzLDguNDI1IEM1Mi44MTI1NTAzLDguNDI1IDUyLjkwMjI4MTksOC40MjQ1MjUxNCA1Mi44MTI1NTAzLDguNDI1IEw1Mi44MTI1NTAzLDguNDI1IEw1Mi44MTI1NTAzLDguNDI1IFogTTUyLjgxMjU1MDMsOC40MjUiIGZpbGw9IiNCRjMxMjYiIGlkPSJwYXRoMTM1MCIvPjxwYXRoIGQ9Ik02OC4wNDk1MzAyLDYxLjIxMjM3NDMgTDY4LjYwNDM2MjQsNTcuNDA0NDY5MyBDNjguMzAxMzQyMyw1Ny40MDQ0NjkzIDY3Ljg1NTUwMzQsNTcuNTM1NTMwNyA2Ny40NjIyODE5LDU3LjUzNTUzMDcgQzY1LjkxOTQ2MzEsNTcuNTM1NTMwNyA2NS43NDkzOTYsNTYuNzA2NDI0NiA2NS44NDc1ODM5LDU2LjA5MzM3OTkgTDY3LjA5Mzk1OTcsNDguMzIzNzE1MSBMNjkuNDM4NzI0OCw0OC4zMjM3MTUxIEw3MC4wMDQ4MzIyLDQ0LjExMTcwMzkgTDY3Ljc5Mzk1OTcsNDQuMTExNzAzOSBMNjguMjQ0MDI2OCw0MS40OTIzNzQzIEw2My44MTE5NDYzLDQxLjQ5MjM3NDMgQzYzLjcxNDIyODIsNDEuNTkxMTQ1MyA2MS4xOTU2Mzc2LDU2LjIyMzk2NjUgNjEuMTk1NjM3Niw1OC4wMDU2NDI1IEM2MS4xOTU2Mzc2LDYwLjY0MzQ5MTYgNjIuNjYwOTM5Niw2MS44MTgyOTYxIDY0LjcyNzExNDEsNjEuNzk5MzAxNyBDNjYuMzQ1MTAwNyw2MS43ODU1MzA3IDY3LjYwNTEwMDcsNjEuMzMyOTg4OCA2OC4wNDk1MzAyLDYxLjIxMjM3NDMgQzY4LjA0OTUzMDIsNjEuMjEyMzc0MyA2Ny42MDUxMDA3LDYxLjMzMjk4ODggNjguMDQ5NTMwMiw2MS4yMTIzNzQzIEw2OC4wNDk1MzAyLDYxLjIxMjM3NDMgTDY4LjA0OTUzMDIsNjEuMjEyMzc0MyBaIE02OC4wNDk1MzAyLDYxLjIxMjM3NDMiIGZpbGw9IiNGRkZGRkYiIGlkPSJwYXRoNDE1NyIvPjxwYXRoIGQ9Ik02OS40NTM3NTg0LDUzLjk1MjIzNDYgQzY5LjQ1Mzc1ODQsNjAuMjgzMDcyNiA3My41ODc5ODY2LDYxLjc4NzQzMDIgNzcuMTEwMDY3MSw2MS43ODc0MzAyIEM4MC4zNjEwNzM4LDYxLjc4NzQzMDIgODEuNzkxNjEwNyw2MS4wNTI4MjEyIDgxLjc5MTYxMDcsNjEuMDUyODIxMiBMODIuNTcyNDE2MSw1Ni43MzIwNjcgQzgyLjU3MjQxNjEsNTYuNzMyMDY3IDgwLjA5OTM5Niw1Ny44MzMyNjgyIDc3Ljg2NTk3MzIsNTcuODMzMjY4MiBDNzMuMTA2OTEyOCw1Ny44MzMyNjgyIDczLjk0MDMzNTYsNTQuMjQ2NjQ4IDczLjk0MDMzNTYsNTQuMjQ2NjQ4IEw4Mi45NDczMTU0LDU0LjI0NjY0OCBDODIuOTQ3MzE1NCw1NC4yNDY2NDggODMuNTI4OTI2Miw1MS4zNDM4MjY4IDgzLjUyODkyNjIsNTAuMTYwOTQ5NyBDODMuNTI4OTI2Miw0Ny4yMDkyMTc5IDgyLjA3NTM2OTEsNDMuNjEyNjI1NyA3Ny4yMDkxOTQ2LDQzLjYxMjYyNTcgQzcyLjc1MjY4NDYsNDMuNjEzNTc1NCA2OS40NTM3NTg0LDQ4LjQ2NzEyMjkgNjkuNDUzNzU4NCw1My45NTIyMzQ2IEM2OS40NTM3NTg0LDUzLjk1MjIzNDYgNjkuNDUzNzU4NCw0OC40NjcxMjI5IDY5LjQ1Mzc1ODQsNTMuOTUyMjM0NiBMNjkuNDUzNzU4NCw1My45NTIyMzQ2IEw2OS40NTM3NTg0LDUzLjk1MjIzNDYgWiBNNzcuMjI2MTA3NCw0Ny42MjQ3MjA3IEM3OS43MjczMTU0LDQ3LjYyNDcyMDcgNzkuMjY1OTczMiw1MC40NjU4MTAxIDc5LjI2NTk3MzIsNTAuNjk1NjQyNSBMNzQuMzQ1MzAyLDUwLjY5NTY0MjUgQzc0LjM0NTMwMiw1MC40MDIxNzg4IDc0LjgxMDQwMjcsNDcuNjI0NzIwNyA3Ny4yMjYxMDc0LDQ3LjYyNDcyMDcgQzc3LjIyNjEwNzQsNDcuNjI0NzIwNyA3NC44MTA0MDI3LDQ3LjYyNDcyMDcgNzcuMjI2MTA3NCw0Ny42MjQ3MjA3IEw3Ny4yMjYxMDc0LDQ3LjYyNDcyMDcgTDc3LjIyNjEwNzQsNDcuNjI0NzIwNyBaIE03Ny4yMjYxMDc0LDQ3LjYyNDcyMDciIGZpbGw9IiNGRkZGRkYiIGlkPSJwYXRoNDE1NSIvPjxwYXRoIGQ9Ik0xMDUuMjkxODc5LDYxLjIxMDQ3NDkgTDEwNi4wODQ4OTksNTYuMzI2NTM2MyBDMTA2LjA4NDg5OSw1Ni4zMjY1MzYzIDEwMy45MTAyMDEsNTcuNDI4Njg3MiAxMDIuNDE3NjUxLDU3LjQyODY4NzIgQzk5LjI3Mzc1ODQsNTcuNDI4Njg3MiA5OC4wMTI4MTg4LDU1LjAwMjE1MDggOTguMDEyODE4OCw1Mi4zOTUxNjc2IEM5OC4wMTI4MTg4LDQ3LjEwNjY0OCAxMDAuNzE3OTE5LDQ0LjE5NzE3ODggMTAzLjcyOTMyOSw0NC4xOTcxNzg4IEMxMDUuOTg3NjUxLDQ0LjE5NzE3ODggMTA3LjgwMDEzNCw0NS40Nzg4MjY4IDEwNy44MDAxMzQsNDUuNDc4ODI2OCBMMTA4LjUyMzYyNCw0MC43MzM1NDc1IEMxMDguNTIzNjI0LDQwLjczMzU0NzUgMTA1LjgzNTkwNiwzOS42MzQyNDU4IDEwMy41MzIwMTMsMzkuNjM0MjQ1OCBDOTguNDE1NDM2MiwzOS42MzQyNDU4IDkzLjQzNzkxOTUsNDQuMTIwNzI2MyA5My40Mzc5MTk1LDUyLjU0NjY0OCBDOTMuNDM3OTE5NSw1OC4xMzM4NTQ3IDk2LjEyNTYzNzYsNjEuODIzOTk0NCAxMDEuNDE0NjMxLDYxLjgyMzk5NDQgQzEwMi45MSw2MS44MjQ0NjkzIDEwNS4yOTE4NzksNjEuMjEwNDc0OSAxMDUuMjkxODc5LDYxLjIxMDQ3NDkgTDEwNS4yOTE4NzksNjEuMjEwNDc0OSBMMTA1LjI5MTg3OSw2MS4yMTA0NzQ5IEwxMDUuMjkxODc5LDYxLjIxMDQ3NDkgWiBNMTA1LjI5MTg3OSw2MS4yMTA0NzQ5IiBmaWxsPSIjRkZGRkZGIiBpZD0icGF0aDQxNTEiLz48cGF0aCBkPSJNNDMuNjczMDg3Miw0My42ODI0MzAyIEM0MC42MzM5NTk3LDQzLjY4MjQzMDIgMzguMzA0MjI4Miw0NC42Njk2NjQ4IDM4LjMwNDIyODIsNDQuNjY5NjY0OCBMMzcuNjYxMDczOCw0OC41Mjg4NTQ3IEMzNy42NjEwNzM4LDQ4LjUyODg1NDcgMzkuNTgzOTU5Nyw0Ny43MzkxNjIgNDIuNDkwNjA0LDQ3LjczOTE2MiBDNDQuMTQxMDA2Nyw0Ny43MzkxNjIgNDUuMzQ4Mzg5Myw0Ny45MjY3MzE4IDQ1LjM0ODM4OTMsNDkuMjgyNDU4MSBDNDUuMzQ4Mzg5Myw1MC4xMDU4NjU5IDQ1LjIwMDQwMjcsNTAuNDA5Nzc2NSA0NS4yMDA0MDI3LDUwLjQwOTc3NjUgQzQ1LjIwMDQwMjcsNTAuNDA5Nzc2NSA0My44OTg1OTA2LDUwLjI5OTYwODkgNDMuMjk1ODM4OSw1MC4yOTk2MDg5IEMzOS40NjI3NTE3LDUwLjI5OTYwODkgMzUuNDM2MTA3NCw1MS45NTMwNzI2IDM1LjQzNjEwNzQsNTYuOTM4MTU2NCBDMzUuNDM2MTA3NCw2MC44NjYyMDExIDM4LjA3Nzc4NTIsNjEuNzY3NDg2IDM5LjcxNTAzMzYsNjEuNzY3NDg2IEM0Mi44NDIwMTM0LDYxLjc2NzQ4NiA0NC4xODk4NjU4LDU5LjcxNjU2NDIgNDQuMjYxNzQ1LDU5LjcxMDM5MTEgTDQ0LjExNTYzNzYsNjEuNDIyMjYyNiBMNDguMDE4MjU1LDYxLjQyMjI2MjYgTDQ5Ljc1OTMyODksNDkuMDg0OTE2MiBDNDkuNzU5MzI4OSw0My44NTEwMDU2IDQ1LjI0MjIxNDgsNDMuNjgyNDMwMiA0My42NzMwODcyLDQzLjY4MjQzMDIgTDQzLjY3MzA4NzIsNDMuNjgyNDMwMiBMNDMuNjczMDg3Miw0My42ODI0MzAyIEw0My42NzMwODcyLDQzLjY4MjQzMDIgWiBNNDQuNjIyNTUwMyw1My43Mjc2MjU3IEM0NC43MDcxMTQxLDU0LjQ4MTIyOTEgNDQuMTU1MTAwNyw1OC4wMTM3MTUxIDQxLjQ4NjY0NDMsNTguMDEzNzE1MSBDNDAuMTEwMTM0Miw1OC4wMTM3MTUxIDM5Ljc1MjE0NzcsNTYuOTUwOTc3NyAzOS43NTIxNDc3LDU2LjMyMjI2MjYgQzM5Ljc1MjE0NzcsNTUuMDk2MTczMiA0MC40MTEyNzUyLDUzLjYyNDEwNjEgNDMuNjU4OTkzMyw1My42MjQxMDYxIEM0NC40MTQ0Mjk1LDUzLjYyNTA1NTkgNDQuNDk1MjM0OSw1My43MDY3MzE4IDQ0LjYyMjU1MDMsNTMuNzI3NjI1NyBDNDQuNjIyNTUwMyw1My43Mjc2MjU3IDQ0LjQ5NTIzNDksNTMuNzA2NzMxOCA0NC42MjI1NTAzLDUzLjcyNzYyNTcgTDQ0LjYyMjU1MDMsNTMuNzI3NjI1NyBMNDQuNjIyNTUwMyw1My43Mjc2MjU3IFogTTQ0LjYyMjU1MDMsNTMuNzI3NjI1NyIgZmlsbD0iI0ZGRkZGRiIgaWQ9InBhdGg0MTQ5Ii8+PHBhdGggZD0iTTUzLjkwNzE4MTIsNjEuNjc3MjYyNiBDNTQuOTA1NTAzNCw2MS42NzcyNjI2IDYwLjYxMjYxNzQsNjEuOTMzNjg3MiA2MC42MTI2MTc0LDU1Ljk4MTMxMjggQzYwLjYxMjYxNzQsNTAuNDE2NDI0NiA1NS4zMjk3MzE1LDUxLjUxNTcyNjMgNTUuMzI5NzMxNSw0OS4yODAwODM4IEM1NS4zMjk3MzE1LDQ4LjE2NzAxMTIgNTYuMTkwODcyNSw0Ny44MTY1NjQyIDU3Ljc2NDY5OCw0Ny44MTY1NjQyIEM1OC4zODk1MzAyLDQ3LjgxNjU2NDIgNjAuNzkzNDg5OSw0OC4wMTc0MzAyIDYwLjc5MzQ4OTksNDguMDE3NDMwMiBMNjEuMzUyNTUwMyw0NC4wNjE4NDM2IEM2MS4zNTI1NTAzLDQ0LjA2MjMxODQgNTkuNzk2NTc3Miw0My43MDk5NzIxIDU3LjI2MzQyMjgsNDMuNzA5OTcyMSBDNTMuOTg0Njk4LDQzLjcwOTk3MjEgNTAuNjU2NjQ0Myw0NS4wMzI5MzMgNTAuNjU2NjQ0Myw0OS41NTkzMDE3IEM1MC42NTY2NDQzLDU0LjY4ODI2ODIgNTYuMjA1OTA2LDU0LjE3MzUxOTYgNTYuMjA1OTA2LDU2LjMzNDEzNDEgQzU2LjIwNTkwNiw1Ny43NzYyODQ5IDU0LjY1NTU3MDUsNTcuODkzNTc1NCA1My40NjA4NzI1LDU3Ljg5MzU3NTQgQzUxLjM5MzI4ODYsNTcuODkzNTc1NCA0OS41MzE0NzY1LDU3LjE3NjUzNjMgNDkuNTI0ODk5Myw1Ny4yMTA3MjYzIEw0OC45MzM4OTI2LDYxLjEyNjQyNDYgQzQ5LjA0MTAwNjcsNjEuMTU5NjY0OCA1MC4xODkxOTQ2LDYxLjY3NzI2MjYgNTMuOTA3MTgxMiw2MS42NzcyNjI2IEM1My45MDcxODEyLDYxLjY3NzI2MjYgNTAuMTg5MTk0Niw2MS42NzcyNjI2IDUzLjkwNzE4MTIsNjEuNjc3MjYyNiBMNTMuOTA3MTgxMiw2MS42NzcyNjI2IEw1My45MDcxODEyLDYxLjY3NzI2MjYgWiBNNTMuOTA3MTgxMiw2MS42NzcyNjI2IiBmaWxsPSIjRkZGRkZGIiBpZD0icGF0aDQxNDUiLz48cGF0aCBkPSJNMTQyLjAwNDI5NSw0MC4xMzI4NDkyIEwxNDEuMDQ4MjU1LDQ2LjEyODkxMDYgQzE0MS4wNDgyNTUsNDYuMTI4OTEwNiAxMzkuMzgsNDMuNzk5NzIwNyAxMzYuNzY4Mzg5LDQzLjc5OTcyMDcgQzEzMi43MDc0NSw0My43OTk3MjA3IDEyOS4zMjI1NSw0OC43NDg3MTUxIDEyOS4zMjI1NSw1NC40MzUxNjc2IEMxMjkuMzIyNTUsNTguMTA1ODM4IDEzMS4xMjc5ODcsNjEuNzAyNDMwMiAxMzQuODE4NzI1LDYxLjcwMjQzMDIgQzEzNy40NzM1NTcsNjEuNzAyNDMwMiAxMzguOTQ1NDM2LDU5LjgzMTQ4MDQgMTM4Ljk0NTQzNiw1OS44MzE0ODA0IEwxMzguNzUwNDcsNjEuNDI5Mzg1NSBMMTQzLjA2MTM0Miw2MS40MjkzODU1IEwxNDYuNDQ3MTgxLDQwLjEyNTcyNjMgTDE0Mi4wMDQyOTUsNDAuMTMyODQ5MiBMMTQyLjAwNDI5NSw0MC4xMzI4NDkyIEwxNDIuMDA0Mjk1LDQwLjEzMjg0OTIgTDE0Mi4wMDQyOTUsNDAuMTMyODQ5MiBaIE0xMzkuOTQ2MTA3LDUxLjgyMzkxMDYgQzEzOS45NDYxMDcsNTQuMTkwMTM5NyAxMzguNzg3MTE0LDU3LjM1MDgxMDEgMTM2LjM4NDA5NCw1Ny4zNTA4MTAxIEMxMzQuNzg5MTI4LDU3LjM1MDgxMDEgMTM0LjA0MTY3OCw1NS45OTc0NTgxIDEzNC4wNDE2NzgsNTMuODczNDA3OCBDMTM0LjA0MTY3OCw1MC40MDAyNzkzIDEzNS41ODQ5NjYsNDguMTA4NjAzNCAxMzcuNTMyMjgyLDQ4LjEwODYwMzQgQzEzOS4xMjc3MTgsNDguMTA4MTI4NSAxMzkuOTQ2MTA3LDQ5LjIxNTk3NzcgMTM5Ljk0NjEwNyw1MS44MjM5MTA2IEMxMzkuOTQ2MTA3LDUxLjgyMzkxMDYgMTM5Ljk0NjEwNyw0OS4yMTU5Nzc3IDEzOS45NDYxMDcsNTEuODIzOTEwNiBMMTM5Ljk0NjEwNyw1MS44MjM5MTA2IEwxMzkuOTQ2MTA3LDUxLjgyMzkxMDYgWiBNMTM5Ljk0NjEwNyw1MS44MjM5MTA2IiBmaWxsPSIjRkZGRkZGIiBpZD0icGF0aDQxMzkiLz48cGF0aCBkPSJNMTkuNjc1MzAyLDYxLjQ0NzkwNSBMMjIuMzczMzU1Nyw0NS4zNjQzODU1IEwyMi43NjkzOTYsNjEuNDQ3OTA1IEwyNS44MjMwODcyLDYxLjQ0NzkwNSBMMzEuNTE5Mzk2LDQ1LjM2NDM4NTUgTDI4Ljk5NjEwNzQsNjEuNDQ3OTA1IEwzMy41MzM0MjI4LDYxLjQ0NzkwNSBMMzcuMDI3Nzg1Miw0MC4xMTU3NTQyIEwzMC4wMTEzNDIzLDQwLjExNTc1NDIgTDI1LjY0MTc0NSw1My4yMDQzMjk2IEwyNS40MTQzNjI0LDQwLjExNTc1NDIgTDE4Ljk0NjY0NDMsNDAuMTE1NzU0MiBMMTUuNDAyMDEzNCw2MS40NDc5MDUgTDE5LjY3NTMwMiw2MS40NDc5MDUgTDE5LjY3NTMwMiw2MS40NDc5MDUgTDE5LjY3NTMwMiw2MS40NDc5MDUgTDE5LjY3NTMwMiw2MS40NDc5MDUgWiBNMTkuNjc1MzAyLDYxLjQ0NzkwNSIgZmlsbD0iI0ZGRkZGRiIgaWQ9InBhdGg0MTMzIi8+PHBhdGggZD0iTTg3Ljk2MTQ3NjUsNjEuNDc3MzQ2NCBDODkuMjUxNTQzNiw1NC4wNjE5Mjc0IDg5LjQ5MDY3MTEsNDguMDQwNjk4MyA5Mi41NjkyNjE3LDQ5LjE0Mjg0OTIgQzkzLjEwODEyMDgsNDYuMjcyNzkzMyA5My42MjgxODc5LDQ1LjE2MjU2OTggOTQuMjE2Mzc1OCw0My45NDc4NzcxIEM5NC4yMTYzNzU4LDQzLjk0Nzg3NzEgOTMuOTQwNjA0LDQzLjg4OTQ2OTMgOTMuMzYxODEyMSw0My44ODk0NjkzIEM5MS4zNzY5MTI4LDQzLjg4OTQ2OTMgODkuOTA2NDQzLDQ2LjYzMDM2MzEgODkuOTA2NDQzLDQ2LjYzMDM2MzEgTDkwLjMwMTU0MzYsNDQuMTEzMTI4NSBMODYuMTc0ODMyMiw0NC4xMTMxMjg1IEw4My40MTAwNjcxLDYxLjQ3NzM0NjQgTDg3Ljk2MTQ3NjUsNjEuNDc3MzQ2NCBMODcuOTYxNDc2NSw2MS40NzczNDY0IEw4Ny45NjE0NzY1LDYxLjQ3NzM0NjQgTDg3Ljk2MTQ3NjUsNjEuNDc3MzQ2NCBaIE04Ny45NjE0NzY1LDYxLjQ3NzM0NjQiIGZpbGw9IiNGRkZGRkYiIGlkPSJwYXRoNDEzMSIvPjxwYXRoIGQ9Ik0xMTUuNTE4NTUsNDMuNjgyNDMwMiBDMTEyLjQ3OTQyMyw0My42ODI0MzAyIDExMC4xNDk2OTEsNDQuNjY5NjY0OCAxMTAuMTQ5NjkxLDQ0LjY2OTY2NDggTDEwOS41MDcwMDcsNDguNTI4ODU0NyBDMTA5LjUwNzAwNyw0OC41Mjg4NTQ3IDExMS40Mjk4OTMsNDcuNzM5MTYyIDExNC4zMzY1MzcsNDcuNzM5MTYyIEMxMTUuOTg2OTQsNDcuNzM5MTYyIDExNy4xOTMzODMsNDcuOTI2NzMxOCAxMTcuMTkzMzgzLDQ5LjI4MjQ1ODEgQzExNy4xOTMzODMsNTAuMTA1ODY1OSAxMTcuMDQ2MzM2LDUwLjQwOTc3NjUgMTE3LjA0NjMzNiw1MC40MDk3NzY1IEMxMTcuMDQ2MzM2LDUwLjQwOTc3NjUgMTE1Ljc0NDUyMyw1MC4yOTk2MDg5IDExNS4xNDEzMDIsNTAuMjk5NjA4OSBDMTExLjMwODY4NSw1MC4yOTk2MDg5IDEwNy4yODIwNCw1MS45NTMwNzI2IDEwNy4yODIwNCw1Ni45MzgxNTY0IEMxMDcuMjgyMDQsNjAuODY2MjAxMSAxMDkuOTIzMjQ4LDYxLjc2NzQ4NiAxMTEuNTYwNDk3LDYxLjc2NzQ4NiBDMTE0LjY4NzQ3Nyw2MS43Njc0ODYgMTE2LjAzNTMyOSw1OS43MTY1NjQyIDExNi4xMDY3MzgsNTkuNzEwMzkxMSBMMTE1Ljk2MTU3LDYxLjQyMjI2MjYgTDExOS44NjQxODgsNjEuNDIyMjYyNiBMMTIxLjYwNDc5Miw0OS4wODQ5MTYyIEMxMjEuNjA1MjYyLDQzLjg1MTAwNTYgMTE3LjA4NzY3OCw0My42ODI0MzAyIDExNS41MTg1NSw0My42ODI0MzAyIEwxMTUuNTE4NTUsNDMuNjgyNDMwMiBMMTE1LjUxODU1LDQzLjY4MjQzMDIgTDExNS41MTg1NSw0My42ODI0MzAyIFogTTExNi40Njk0MjMsNTMuNzI3NjI1NyBDMTE2LjU1Mzk4Nyw1NC40ODEyMjkxIDExNi4wMDE1MDMsNTguMDEzNzE1MSAxMTMuMzMyMTA3LDU4LjAxMzcxNTEgQzExMS45NTU1OTcsNTguMDEzNzE1MSAxMTEuNTk4NTUsNTYuOTUwOTc3NyAxMTEuNTk4NTUsNTYuMzIyMjYyNiBDMTExLjU5ODU1LDU1LjA5NjE3MzIgMTEyLjI1NzY3OCw1My42MjQxMDYxIDExNS41MDQ5MjYsNTMuNjI0MTA2MSBDMTE2LjI2MDM2Miw1My42MjUwNTU5IDExNi4zNDA2OTgsNTMuNzA2NzMxOCAxMTYuNDY5NDIzLDUzLjcyNzYyNTcgQzExNi40Njk0MjMsNTMuNzI3NjI1NyAxMTYuMzQwNjk4LDUzLjcwNjczMTggMTE2LjQ2OTQyMyw1My43Mjc2MjU3IEwxMTYuNDY5NDIzLDUzLjcyNzYyNTcgTDExNi40Njk0MjMsNTMuNzI3NjI1NyBaIE0xMTYuNDY5NDIzLDUzLjcyNzYyNTciIGZpbGw9IiNGRkZGRkYiIGlkPSJwYXRoNDE0OV8xXyIvPjxwYXRoIGQ9Ik0xMjUuMTcxNzM4LDYxLjQ3NzM0NjQgQzEyNi40NjIyNzUsNTQuMDYxOTI3NCAxMjYuNzAxNDAzLDQ4LjA0MDY5ODMgMTI5Ljc3OTA1NCw0OS4xNDI4NDkyIEMxMzAuMzE4ODUyLDQ2LjI3Mjc5MzMgMTMwLjgzOTM4OSw0NS4xNjI1Njk4IDEzMS40MjcxMDcsNDMuOTQ3ODc3MSBDMTMxLjQyNzEwNyw0My45NDc4NzcxIDEzMS4xNTEzMzYsNDMuODg5NDY5MyAxMzAuNTcyNTQ0LDQzLjg4OTQ2OTMgQzEyOC41ODc2NDQsNDMuODg5NDY5MyAxMjcuMTE3MTc0LDQ2LjYzMDM2MzEgMTI3LjExNzE3NCw0Ni42MzAzNjMxIEwxMjcuNTEyMjc1LDQ0LjExMzEyODUgTDEyMy4zODU1NjQsNDQuMTEzMTI4NSBMMTIwLjYyMDc5OSw2MS40NzczNDY0IEwxMjUuMTcxNzM4LDYxLjQ3NzM0NjQgTDEyNS4xNzE3MzgsNjEuNDc3MzQ2NCBMMTI1LjE3MTczOCw2MS40NzczNDY0IEwxMjUuMTcxNzM4LDYxLjQ3NzM0NjQgWiBNMTI1LjE3MTczOCw2MS40NzczNDY0IiBmaWxsPSIjRkZGRkZGIiBpZD0icGF0aDQxMzFfMV8iLz48L2c+PC9nPjwvc3ZnPg==" alt="">
+        <div *ngIf="isShow">
+          <div class="form-row mt-5">
+            <div class="form-group col">
+              <h4>Điền thông tin thẻ</h4>
+            </div>
           </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-lg-4 ">
-            <label>Title</label>
-            <select class="form-control" id="input">
-              <option>Select</option>
-              <option>Mr</option>
-              <option>Mrs</option>
-              <option>Mr & Mrs</option>
-              <option>Ms</option>
-              <option>Miss</option>
-              <option>Other</option>
-            </select>
+
+          <div class="form-row">
+            <div class="form-group col-lg-6 ">
+              <label>Số thẻ</label>
+              <input type="text" (keyup)="inputCardNumber($event.target.value)" formControlName="cardNumber" class="form-control" placeholder="xxxx-xxxx-xxxx-xxxx" id="input" maxlength="19" autocomplete="off"/>
+            </div>
+
+            <div class="form-group col-lg-6">
+              <label>Tên chủ thẻ</label>
+              <input type="text" formControlName="cardHolderName" class="form-control" placeholder="Vd: Nguyễn Văn A" autocomplete="off"
+                id="input" />
+            </div>
           </div>
-          <div class="form-group col-lg-4 offset-lg-2">
-            <label>Date Of Birth</label>
-            <input type="date" class="form-control" id="input" />
+          <div class="form-row">
+            <div class="form-group col-lg-6 ">
+              <label>Ngày hết hạn</label>
+              <input type="text" (keyup)="inputExpireDate()" formControlName="expireDate" class="form-control" placeholder="dd/MM" id="input" maxlength="5" autocomplete="off"/>
+            </div>
+
+            <div class="form-group col-lg-3">
+              <label>Mã bảo mật</label>
+              <input type="text" formControlName="securityCode" class="form-control" placeholder="Nhập mã bảo mật" autocomplete="off"
+                id="input" maxlength="3" />
+            </div>
+            <div class="form-group col-lg-3">
+              <img style="margin-top: 14px;" src="data:image/png;base64,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" alt="">
+            </div>
           </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-lg-6">
-            <label>First Name</label>
-            <input class="form-control" id="input" />
-          </div>
-          <div class="form-group col-lg-6">
-            <label>Last Name</label>
-            <input type="text" class="form-control" id="input" />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-lg-6">
-            <label>Email</label>
-            <input type="email" class="form-control" id="input" />
-          </div>
-          <div class="form-group col-lg-6">
-            <label>Phone Number</label>
-            <input type="text" class="form-control" id="input" />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-lg-12">
-            <label>Full Address</label>
-            <input type="text" class="form-control" placeholder="Start typing and select your address" id="input" />
+          <div class="form-row mt-3">
+            <div class="form-group col-lg-12">
+              <button id="btn1" (click)="submit(formCharity)" class="btn btn-danger">Xác nhận</button>
+            </div>
           </div>
         </div>
       </form>
 
-      <form class="form-group">
-        <div class="form-row">
-          <div class="form-group col">
-            <h4>2.Contact Details</h4>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-lg-12">
-            <label>Pay With</label>
-            <select type="text" class="form-control" id="input">
-              <option>Paypal</option>
-              <option>Credit Card</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group col-lg-12">
-            <label>Cardholder Name</label>
-            <input type="text" class="form-control" id="input" />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group col-lg-6">
-            <label>Card Type</label>
-            <select class="form-control" id="input">
-              <option>Select</option>
-              <option>Visa</option>
-              <option>Master Card</option>
-            </select>
-          </div>
-          <div class="form-group col-lg-6">
-            <label>Card Number</label>
-            <input type="text" class="form-control" id="input" />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group col-lg-4">
-            <label>Expiry Month</label>
-            <select class="form-control" id="input">
-              <option>Select</option>
-              <option>1-January</option>
-              <option>2-February</option>
-            </select>
-          </div>
-          <div class="form-group col-lg-4">
-            <label>Expiry Year</label>
-            <select class="form-control" id="input">
-              <option>Select</option>
-              <option>2020</option>
-              <option>2021</option>
-            </select>
-          </div>
-          <div class="form-group col-lg-4">
-            <label>CVC</label>
-            <input type="number" class="form-control" id="input" />
-          </div>
-        </div>
-      </form>
-      <form class="form-group" formGroup>
-        <div class="form-row">
-          <div class="form-group col">
-            <label>Please fix any error mark in red above to continue.</label>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-lg-12">
-            <button id="btn1" class="btn btn-danger">Donate</button>
-          </div>
-        </div>
-      </form>
     </div>
   </div>
 </div>

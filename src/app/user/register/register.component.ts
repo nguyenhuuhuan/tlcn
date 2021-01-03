@@ -3,6 +3,8 @@ import { UserService } from './../../service/user.service';
 import { Component, OnInit } from '@angular/core';
 //import { _switch } from 'rxjs-compat/operator/switch';
 import { ToastrService } from 'ngx-toastr';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -10,43 +12,50 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
+  form: any = {};
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
   constructor(
     private toastr:ToastrService,
-    public userService:UserService
+    public userService:UserService,
+    private fb:FormBuilder,
+    private authService: AuthService
     )
     { }
 
   ngOnInit() {
+
+
   }
-  onSubmit(){
-    this.userService.register().subscribe(
-      (res:any)=>{
-        if(res){
-          this.toastr.success('New user created!', 'Registration successed.')
-          this.userService.formModel.reset();
-          
-        }
-        // else{
-        //   res.errors.forEach(element => {
-        //     switch(element.code){
-        //       case 'DuplicateUserName':
-        //         this.toastr.error('Username is already taken','Registration failed.')
-        //         //username is already taken
-        //         console.log('Username is already taken')
-        //         break;
-        //       default:
-        //         this.toastr.error(element.description,'Registration failed')
-        //         //Registration failed
-        //         console.log('Register failed')
-        //         break;
-        //     }
-        //   });
-        // }
+  comparePasswords(fb:FormGroup){
+    let confirmPswrdCtrl=fb.get('confirmPassword');
+    //passwordMismatch
+    //confirmPswrdCtrl.errors={passwordMismatch:true}
+    if(confirmPswrdCtrl.errors==null||'passwordMismatch' in confirmPswrdCtrl.errors){
+      if(fb.get('password').value!=confirmPswrdCtrl.value)
+      confirmPswrdCtrl.setErrors({passwordMismatch:true});
+      else
+      confirmPswrdCtrl.setErrors(null);
+    }
+  }
+  onSubmit() {
+    this.authService.register(this.form).subscribe(
+      data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.toastr.success('New user created!', 'Registration successed.')
+        this.isSignUpFailed = false;
       },
-      err=>{
-        console.log(err);
+      err => {
+        this.errorMessage = err.error.message;
+
+        this.isSignUpFailed = true;
+        this.toastr.warning(this.errorMessage,'Sign Up Failed!')
+
       }
-    )
+    );
   }
+
+
 }

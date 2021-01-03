@@ -1,14 +1,15 @@
 import { NewsDetailComponent } from './pages/news/news-detail/news-detail.component';
 import { NewsComponent } from './pages/news/news/news.component';
 import { AuthGuard } from './auth.guard';
-import { CausesDetailComponent } from './pages/causes/causes-detail/causes-detail.component';
+import { Package1DetailComponent } from './pages/causes/package1-detail/package1-detail.component';
 import { DefaultLayoutComponent } from './block/default-layout/default-layout.component';
 import { CreateCausesComponent } from './pages/causes/create-causes/create-causes.component';
-import { DonateComponent } from './pages/donate/donate.component';
 import { CausesComponent } from './pages/causes/causes/causes.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { Package2DetailComponent } from './pages/causes/package2-detail/package2-detail.component';
+import { CausesDetailComponent } from './pages/causes/causes-detail/causes-detail.component';
 
 const routes: Routes = [
   {path:'',component:DefaultLayoutComponent,
@@ -22,23 +23,28 @@ const routes: Routes = [
       path:'home',
       component:HomeComponent
     },
-    {
-      path:'donate',
-      component:DonateComponent
-    },
+
     {
       path:'createCauses',
-      //canActivate:[AuthGuard],
+     // canActivate:[AuthGuard],
       component:CreateCausesComponent
     },
     {
       path:'causes',
-      component:CausesComponent
-    },
+      component:CausesComponent,
 
+    },
     {
       path:'causes/package1/:id',
-      component:CausesDetailComponent
+      component:Package1DetailComponent
+    },
+    {
+      path:'causes/package2/:id',
+      component:Package2DetailComponent
+    },
+    {
+      path:'home/package1/:id',
+      component:Package1DetailComponent
     },
     {
       path:'news',
@@ -47,6 +53,10 @@ const routes: Routes = [
     {
       path:'news/:id',
       component:NewsDetailComponent
+    },
+    {
+      path:'donate/:idpost',
+      component:CausesDetailComponent
     }
   ]},
   // {

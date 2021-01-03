@@ -5,6 +5,7 @@ import { ICharity } from './nguoituthien';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, delay, tap } from 'rxjs/operators';
 import { IPackage1 } from 'src/app/service/package1';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class NguoituthienService {
   }
 
   private charityURL="http://localhost:3000/charity";
-
+  charity=ICharity;
+  editForm:FormGroup;
   formCharity:ICharity
   constructor(
     private http:HttpClient
@@ -34,6 +36,12 @@ export class NguoituthienService {
       ,catchError(error=>of(new ICharity()))
     )
   }
+  addCharity(charity: ICharity): Observable<ICharity> {
+    return this.http.post<ICharity>(this.charityURL, charity).pipe(
+      tap((prod: ICharity) => console.log(`added package1 w/ id=${charity.id}`)),
+      catchError(this.handleError<ICharity>('addCauses'))
+    );
+  }
   postCharity(data){
     return this.http.post(this.charityURL, data);
   }
@@ -43,5 +51,17 @@ export class NguoituthienService {
   }
   delete(id:number):Observable<ICharity>{
     return this.http.delete<ICharity>(this.charityURL,this.httpOptions)
+  }
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      console.error(error); // log to console instead
+      this.log(`${operation} failed: ${error.message}`);
+
+      return of(result as T);
+    };
+  }
+  private log(message: string) {
+    console.log(message);
   }
 }

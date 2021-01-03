@@ -4,8 +4,6 @@
   border: none;
 }
 
-
-
 #title1{
   font-weight:bold ;
   font-size: 70px ;
@@ -121,7 +119,7 @@ header.masthead .masthead-subheading {
   font-style: italic;
   line-height: 1.5rem;
   margin-bottom: 25px;
-}  
+}
 header.masthead .masthead-heading {
   font-size: 3.25rem;
   font-weight: 700;

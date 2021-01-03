@@ -1,13 +1,10 @@
-export interface IUser{
-    id:string,
-    fullName:string,
-    userName:string,
-    passwords:[{
-      password:string,
-      confirmPassword:string
-    }],
-    email:string,
-    address:string,
-    phoneNumber:string,
+export class IUser{
+    _id:string;
+    fullName:string;
+
+    password:string;
+    roles:[]
+    email:string;
+    address:string;
+    phoneNumber:string;
   }
-  

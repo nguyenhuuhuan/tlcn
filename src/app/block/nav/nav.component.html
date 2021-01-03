@@ -8,24 +8,24 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li routerLinkActive="active" class="nav-item">
-          <a routerLink="/home" class="nav-link" href="#">Home</a>
+          <a routerLink="/home" class="nav-link" href="#">Trang Chủ</a>
         </li>
         <li routerLinkActive="active" class="nav-item">
-          <a routerLink="/causes" routerLinkActive="selected" class="nav-link" >Causes</a>
+          <a routerLink="/causes" routerLinkActive="selected" class="nav-link">Nguyên Nhân</a>
         </li>
         <li routerLinkActive="active" class="nav-item" style="border-right: none;">
-          <a routerLink="/news" class="nav-link" href="#">News</a>
+          <a routerLink="/news" class="nav-link" href="#">Tin Tức</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <button class="btn btn-light dropdown-toggle text-dark" type="button" id="dropdownMenuButton"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Pages
           </button>
+        </li> -->
+        <li routerLinkActive="active" class="nav-item" style="border-right: none;" *ngIf="showModeratorBoard">
+          <a routerLink="/createCauses" class="nav-link" >Gây Quỹ</a>
         </li>
-        <li routerLinkActive="active" class="nav-item" style="border-right: none;">
-          <a routerLink="/createCauses" class="nav-link" href="#">Create</a>
-        </li>
-        <li routerLinkActive="active" class="nav-item" style="border-right: none;">
+        <li routerLinkActive="active" class="nav-item" *ngIf="showAdminBoard" style="border-right: none;">
           <a routerLink="/admin/dashboard" class="nav-link" href="#">DashBoard</a>
         </li>
       </ul>
@@ -33,11 +33,20 @@
       <form class="form-inline mt-2 mt-md-0" [formGroup]>
         <ul class="navbar-nav mr-auto">
           <li routerLinkActive="active" class="nav-item active">
-            <button routerLink="/donate" class="btn btn-outline-warning border border mr-sm-2">Donate Now</button></li>
-          <li routerLinkActive="active" class="nav-item">
-            <a [routerLink]="['/user/login']" class="nav-link"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
-          <li routerLinkActive="active" class="nav-item">
-            <a class="nav-link" [routerLink]="['/user/register']" routerLinkActive="router-link-active"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+            <button routerLink="/donate" class="btn btn-outline-warning border border mr-sm-2">Quyên Góp</button></li>
+          <li routerLinkActive="active" class="nav-item" *ngIf="!isLoggedIn">
+            <a [routerLink]="['/user/login']" class="nav-link"><i class="fas fa-sign-in-alt" ></i>Đăng Nhập</a>
+          </li>
+          <li routerLinkActive="active" class="nav-item" *ngIf="!isLoggedIn">
+            <a class="nav-link" [routerLink]="['/user/register']" routerLinkActive="router-link-active" ><i class="fas fa-user-plus"></i> Sign Up</a>
+          </li>
+          <li routerLinkActive="active" class="nav-item" *ngIf="showModeratorBoard || showAdminBoard||showUserBoard">
+            <a   class="nav-link" ><i class="fas fa-user-shield"></i> Xin chào {{ email }}</a>
+          </li>
+          <li routerLinkActive="active" class="nav-item" *ngIf="showModeratorBoard || showAdminBoard ||showUserBoard">
+            <a [routerLink]="['/user/login']" (click)="logout()"  class="nav-link" ><i class="fas fa-sign-in-alt" ></i>Đăng Xuất</a>
+          </li>
+
         </ul>
       </form>
     </div>
@@ -46,9 +55,9 @@
 
 <header class="masthead">
   <div class="container">
-      <div class="masthead-subheading">Welcome To Our Studio!</div>
-      <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
-      <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+      <div class="masthead-subheading">Chào Mừng Đến Với Profit!</div>
+      <div class="masthead-heading text-uppercase">Rất Vui Được Gặp Bạn</div>
+      <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Đóng Góp Ý Kiến</a>
   </div>
 </header>
 

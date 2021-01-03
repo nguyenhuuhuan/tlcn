@@ -1,7 +1,7 @@
 import { Data } from '@angular/router';
 
 export class IPackage1{
-  id:number;
+  _id:number;
   title:string;
   imageUrl:string;
   target:number;
@@ -9,8 +9,9 @@ export class IPackage1{
   confirm:string;
   accuracy:string;
   description:string;
+  idUser:string;
+  donate:number
   person:{
-    id:number;
     firstName:string;
     lastName:string;
     gender:string
@@ -19,5 +20,7 @@ export class IPackage1{
     avatarUrl:string;
   }
   createdBy:string;
-  createdDate:Date
+  createDate:Date
+  expirationDate:string
+
 }

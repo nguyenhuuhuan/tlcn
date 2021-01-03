@@ -1,9 +1,12 @@
 export class IPost{
-  id:number;
+  _id:number
   title:string;
   content:string;
   imageUrl:string;
+  confirm:string;
+  likes:number;
+  idUser:string;
+  email:string;
   createdDate:Date;
-  createdBy:string;
-
+  description:string;
 }

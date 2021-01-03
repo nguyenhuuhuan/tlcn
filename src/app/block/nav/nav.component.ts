@@ -1,16 +1,38 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenStorageService } from '../../token-storage.service';
+
 declare var jQuery:any;
 declare var $ :any;
+declare var top:any
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-
-  constructor() { }
+  private roles: string[];
+  isLoggedIn = false;
+  showAdminBoard = false;
+  showModeratorBoard = false;
+  showUserBoard=false
+  email: string;
+  constructor(
+    private tokenStorageService: TokenStorageService
+  ) { }
 
   ngOnInit() {
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+      this.showUserBoard = this.roles.includes('ROLE_USER');
+
+      this.email = user.email;
+    }
     (function ($) {
       "use strict"; // Start of use strict
 
@@ -63,5 +85,9 @@ export class NavComponent implements OnInit {
       $(window).scroll(navbarCollapse);
     })(jQuery); // End of use strict
   }
+  logout() {
+    this.tokenStorageService.logout();
+    window.location.reload();
 
+  }
 }

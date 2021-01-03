@@ -3,66 +3,69 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {HttpClient, HttpHeaders} from '@angular/common/http'
 import {IUser} from '../service/users';
 import { environment } from 'src/environments/environment';
+import { Observable, of } from 'rxjs';
+import { tap, catchError } from 'rxjs/operators';
+import { IPost } from './post';
 
-
+const API_URL = 'http://localhost:3000/user';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  user:IUser
-  readonly userURL="http://localhost:3000/user";
-  
-
+  userForm:IUser
+  user=IUser;
   constructor(
-    private fb:FormBuilder,
     private http:HttpClient
   ) { }
-
-  formModel=this.fb.group({
-    userName:['',Validators.required],
-    email:['', Validators.email],
-    fullName:[''],
-    phoneNumber:[''],
-    passwords:this.fb.group({
-      password:['',[Validators.required,Validators.minLength(4)]],
-      confirmPassword:['',Validators.required],
-    },{validators:this.comparePasswords}),
-
-  });
-  comparePasswords(fb:FormGroup){
-    let confirmPswrdCtrl=fb.get('confirmPassword');
-    //passwordMismatch
-    //confirmPswrdCtrl.errors={passwordMismatch:true}
-    if(confirmPswrdCtrl.errors==null||'passwordMismatch' in confirmPswrdCtrl.errors){
-      if(fb.get('password').value!=confirmPswrdCtrl.value)
-      confirmPswrdCtrl.setErrors({passwordMismatch:true});
-      else
-      confirmPswrdCtrl.setErrors(null);
-    }
+  getPublicContent(): Observable<any> {
+    return this.http.get(API_URL + 'all', { responseType: 'text' });
   }
 
-
-
-  login(formData){
-    return this.http.post(this.userURL+'/login',formData)
+  getUserBoard(): Observable<any> {
+    return this.http.get(API_URL + 'user', { responseType: 'text' });
   }
-  getUserProfile(){
-    var tokenHeader=new HttpHeaders({'Authorization':'Bearer'+localStorage.getItem('token')})
-    return this.http.get(this.userURL+'/userProfile',{headers:tokenHeader});
+
+  getModeratorBoard(): Observable<any> {
+    return this.http.get(API_URL + 'mod', { responseType: 'text' });
   }
-  // postUser(user:IUser){
-  //   return this.http.post(environment.apiBaseUrl+'/register', user)
+
+  getAdminBoard(): Observable<any> {
+    return this.http.get(API_URL + 'admin', { responseType: 'text' });
+  }
+
+  getAllUser():Observable<IUser[]>{
+    return this.http.get<IUser[]>(API_URL).pipe(
+      tap(received=> console.log(`receivedUser=${JSON.stringify(received)}`)),
+      catchError(error=>of([]))
+      )
+  }
+  updateUser(id,post:IPost):Observable<any>{
+    console.log(id)
+    const url=`${API_URL}/${id}`;
+    return this.http.put(url,post).pipe(
+      tap(selectedPost=>console.log(`updatePost id=${JSON.stringify(selectedPost)}`)),
+      catchError(error=>of(new IPost()))
+    );
+  }
+
+  // login(formData){
+  //   return this.http.post(this.userURL+'/login',formData)
   // }
-  register(){
-    var body={
-      userName:this.formModel.value.userName,
-      email:this.formModel.value.email,
-      password:this.formModel.value.passwords.password,
-      fullName:this.formModel.value.fullName,
-      phoneNumber:this.formModel.value.phoneNumber
-    };
-      return this.http.post(this.userURL,body)
-  }
+  // getUserProfile(){
+  //   var tokenHeader=new HttpHeaders({'Authorization':'Bearer'+localStorage.getItem('token')})
+  //   return this.http.get(this.userURL+'/userProfile',{headers:tokenHeader});
+  // }
+
+  // register(){
+  //   var body={
+  //     userName:this.formModel.value.userName,
+  //     email:this.formModel.value.email,
+  //     password:this.formModel.value.passwords.password,
+  //     fullName:this.formModel.value.fullName,
+  //     phoneNumber:this.formModel.value.phoneNumber
+  //   };
+  //     return this.http.post(this.userURL,body)
+  // }
 
   // login(formData){
   //   return this.http.post

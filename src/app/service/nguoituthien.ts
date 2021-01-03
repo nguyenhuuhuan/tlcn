@@ -4,7 +4,5 @@ export class ICharity{
     dob:Date;
     address:string;
     phoneNumber:number;
-    cardType:string;
-    cardNumber:number;
-    contributionAmount:number
+    donate:number
 }

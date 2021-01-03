@@ -1,9 +1,9 @@
+import { Package2ManagerComponent } from './pages/package2-manager/package2-manager.component';
 import { AccountManagerComponent } from './pages/account-manager/account-manager.component';
 import { PostComponent } from './pages/post/post.component';
 import { AuthGuard } from './../auth.guard';
 import { AccountComponent } from './pages/account/account.component';
 import { HotronguoingheoComponent } from './pages/hotronguoingheo/hotronguoingheo.component';
-import { NguoituthienComponent } from './pages/nguoituthien/nguoituthien.component';
 import { AdminDefaultLayoutComponent } from './block/admin-default-layout/admin-default-layout.component';
 import { DashBoardComponent } from './pages/dash-board/dash-board.component';
 import { NgModule } from '@angular/core';
@@ -14,12 +14,12 @@ const adminRoutes: Routes = [
   //canActivate:[AuthGuard],
     children:[
       {path:'dashboard', component:DashBoardComponent},
-      {path:'nguoituthien',component:NguoituthienComponent},
       {path:'package1', component:HotronguoingheoComponent},
+      {path:'package2',component:Package2ManagerComponent},
       {path:'account', component:AccountComponent},
       {path:'person', component:PersonComponent},
       {path:'post',component:PostComponent},
-      {path:'accountManager',component:AccountManagerComponent}
+      {path:'accountManager',component:AccountManagerComponent},
   ]
 }
 ];

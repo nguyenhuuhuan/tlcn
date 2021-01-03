@@ -13,39 +13,52 @@
             <div class="col-lg-6">
               <div class="p-5">
                 <div class="text-center">
-                  <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                  <h1 class="h4 text-gray-900 mb-4">Xin Chào!</h1>
                 </div>
-                <form class="user"  #form='ngForm' autocomplete="off" (ngSubmit)="form.valid && onSubmit(form)">
+                <form class="user"   *ngIf="!isLoggedIn"
+                name="form"
+                (ngSubmit)="f.form.valid && onSubmit()"
+                #f="ngForm"
+                novalidate>
                   <div class="form-group">
-                    <input #userName="ngModel" name="userName" [(ngModel)]="formModel.userName" type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." required
-                    [ngClass]="{'invalid-textbox':form.submitted && !userName.valid}">
-                    
-                    <label class="text-danger" *ngIf="form.submitted && userName.errors?.pattern">This field is mandatory.</label>
+                    <input #email="ngModel" name="email" [(ngModel)]="form.email" required type="email" class="form-control form-control-user"  placeholder="Email" required/>
 
+                   <label class="text-danger" *ngIf="email.errors?.email">Email phải được xác thực</label>
                   </div>
                   <div class="form-group">
-                    <input #password="ngModel" name="password" [(ngModel)]="formModel.password" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password"
-                    [ngClass]="{'invalid-textbox':form.submitted && !password.valid}">
-                    <label class="text-danger" *ngIf="form.submitted && password.errors?.minlength">Minimum 4 characters.</label>
+                    <input #password="ngModel" name="password" [(ngModel)]="form.password" type="password" class="form-control form-control-user"  placeholder="Password"/>
+                    <label class="alert alert-danger"
+                    role="alert"
+                    *ngIf="f.submitted && password.invalid">Ít nhất 6 ký tự.</label>
                   </div>
                   <div class="form-group">
                     <div class="custom-control custom-checkbox small">
                       <input type="checkbox" class="custom-control-input" id="customCheck">
-                      <label class="custom-control-label" for="customCheck">Remember Me</label>
+                      <label class="custom-control-label" for="customCheck">Lưu mật khẩu</label>
                     </div>
                   </div>
-                  <button  class="btn btn-danger btn-user btn-block" [disabled]="form.invalid" [routerLink]="['/home']" (click)="login()">
-                    Login
+                  <button  class="btn btn-success btn-user btn-block"  >
+                    Đăng Nhập
                   </button>
 
+
                 </form>
+                <div class="alert alert-success"*ngIf="isLoggedIn">
+                  Đã đăng nhập dưới quyền {{ roles }}.
+                </div>
+                <button  class="btn btn-success btn-user btn-block" *ngIf="isLoggedIn" routerLink="/home">
+                  Trang Chủ
+                </button>
                 <hr>
                 <div class="text-center">
-                  <a class="small" href="forgot-password.html">Forgot Password?</a>
+                  <a class="small" href="forgot-password.html">Quên Password?</a>
                 </div>
                 <br>
+                <button  class="btn btn-danger btn-user btn-block" *ngIf="isLoggedIn" (click)="logout()">
+                  Đăng Xuất
+                </button>
                 <a class="btn btn-primary btn-user btn-block" [routerLink]="['/user/register']">
-                  Sign Up
+                  Đăng Ký
                 </a>
                 <br>
               </div>

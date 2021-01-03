@@ -1,8 +1,8 @@
+import { Package2ManagerComponent } from './pages/package2-manager/package2-manager.component';
 import { AccountManagerComponent } from './pages/account-manager/account-manager.component';
 import { PostComponent } from './pages/post/post.component';
 import { AccountComponent } from './pages/account/account.component';
 import { HotronguoingheoComponent } from './pages/hotronguoingheo/hotronguoingheo.component';
-import { NguoituthienComponent } from './pages/nguoituthien/nguoituthien.component';
 import { SidebarComponent } from './block/sidebar/sidebar.component';
 import { AdminDefaultLayoutComponent } from './block/admin-default-layout/admin-default-layout.component';
 import { HeaderComponent } from './block/header/header.component';
@@ -22,13 +22,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     DashBoardComponent,
     SidebarComponent,
-    NguoituthienComponent,
     HotronguoingheoComponent,
     AdminDefaultLayoutComponent,
     AccountComponent,
     PersonComponent,
     PostComponent,
-    AccountManagerComponent
+    AccountManagerComponent,
+    Package2ManagerComponent
   ],
   imports: [
     CommonModule,
